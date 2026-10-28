@@ -2250,5 +2250,171 @@
             runScoreCalculation();
         });
     </script>
+    
+<!-- GIAO DIỆN ĐĂNG NHẬP / ĐĂNG KÝ -->
+<style>
+  #auth-screen {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+    background: #f1f5f9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Arial, sans-serif;
+  }
+
+  #auth-screen .auth-card {
+    background: white;
+    width: 360px;
+    max-width: 90%;
+    padding: 28px;
+    border-radius: 16px;
+    box-shadow: 0 8px 30px #0002;
+    box-sizing: border-box;
+  }
+
+  #auth-screen h2 {
+    text-align: center;
+    color: #1d4ed8;
+    margin-top: 0;
+  }
+
+  #auth-screen input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px;
+    margin: 8px 0;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+  }
+
+  #auth-screen button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    border: 0;
+    border-radius: 8px;
+    background: #2563eb;
+    color: white;
+    cursor: pointer;
+  }
+
+  #auth-screen .auth-switch {
+    background: transparent;
+    color: #2563eb;
+  }
+
+  #auth-message {
+    font-size: 13px;
+    color: #dc2626;
+    overflow-wrap: anywhere;
+  }
+</style>
+
+<div id="auth-screen">
+  <div class="auth-card">
+    <h2 id="auth-title">Đăng nhập</h2>
+
+    <form id="auth-form">
+      <input id="auth-email" type="email"
+             placeholder="Email" required>
+      <input id="auth-password" type="password"
+             placeholder="Mật khẩu (ít nhất 6 ký tự)"
+             minlength="6" required>
+
+      <button id="auth-submit" type="submit">
+        Đăng nhập
+      </button>
+    </form>
+
+    <p id="auth-message" role="status"></p>
+
+    <button class="auth-switch" id="auth-toggle" type="button">
+      Chưa có tài khoản? Đăng ký
+    </button>
+  </div>
+</div>
+
+<script>
+(function () {
+  const screen = document.getElementById('auth-screen');
+  if (!screen) return;
+
+  const form = document.getElementById('auth-form');
+  const title = document.getElementById('auth-title');
+  const submit = document.getElementById('auth-submit');
+  const toggle = document.getElementById('auth-toggle');
+  const message = document.getElementById('auth-message');
+
+  let isRegister = false;
+
+  function getUsers() {
+    try {
+      return JSON.parse(
+        localStorage.getItem('demo_chatbot_users') || '{}'
+      );
+    } catch {
+      return {};
+    }
+  }
+
+  function showChat() {
+    screen.style.display = 'none';
+  }
+
+ 
+  if (localStorage.getItem('demo_chatbot_session')) {
+    showChat();
+  }
+
+  toggle.addEventListener('click', function () {
+    isRegister = !isRegister;
+    title.textContent = isRegister ? 'Đăng ký' : 'Đăng nhập';
+    submit.textContent = isRegister ? 'Tạo tài khoản' : 'Đăng nhập';
+    toggle.textContent = isRegister
+      ? 'Đã có tài khoản? Đăng nhập'
+      : 'Chưa có tài khoản? Đăng ký';
+    message.textContent = '';
+  });
+
+  form.addEventListener('submit', async function (event) {
+    event.preventDefault();
+
+    const email = document.getElementById('auth-email')
+      .value.trim().toLowerCase();
+    const password = document.getElementById('auth-password').value;
+
+    if (password.length < 6) {
+      message.textContent = 'Mật khẩu cần ít nhất 6 ký tự.';
+      return;
+    }
+
+    const users = getUsers();
+
+    if (isRegister) {
+      if (users[email]) {
+        message.textContent = 'Email này đã được đăng ký.';
+        return;
+      }
+
+      users[email] = password;
+      localStorage.setItem('demo_chatbot_users',
+                           JSON.stringify(users));
+
+      message.style.color = '#15803d';
+      message.textContent = 'Đăng ký thành công! Đang vào chatbot...';
+    } else {
+      if (!users[email] || users[email] !== password) {
+        message.textContent = 'Email hoặc mật khẩu không đúng.';
+        return;
+      }
+    }
+
+    localStorage.setItem('demo_chatbot_session', email);
+    showChat();
+  });
+})();
+</script>
 </body>
 </html>
