@@ -1,0 +1,2254 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cổng Tư vấn Tuyển sinh AI Chuyên sâu - Học viện Phụ nữ Việt Nam (VWA)</title>
+    <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: #f8fafc;
+            color: #0f172a;
+        }
+        .vwa-gradient {
+            background: linear-gradient(135deg, #831843 0%, #be185d 55%, #0284c7 100%);
+        }
+        .vwa-header-gradient {
+            background: linear-gradient(135deg, #831843 0%, #9d174d 100%);
+        }
+        .chat-scroll::-webkit-scrollbar {
+            width: 6px;
+        }
+        .chat-scroll::-webkit-scrollbar-thumb {
+            background-color: #cbd5e1;
+            border-radius: 999px;
+        }
+        .md-content h3 {
+            color: #831843;
+            font-weight: 800;
+            font-size: 1rem;
+            margin: 6px 0 8px;
+        }
+        .md-content h4 {
+            color: #0369a1;
+            font-weight: 700;
+            font-size: 0.92rem;
+            margin: 8px 0 4px;
+        }
+        .md-content ul {
+            list-style-type: disc;
+            padding-left: 20px;
+            margin: 6px 0;
+        }
+        .md-content li {
+            margin-bottom: 4px;
+        }
+        .md-content code {
+            background: #fdf2f8;
+            color: #be185d;
+            padding: 2px 6px;
+            border-radius: 5px;
+            font-size: 0.84em;
+            font-weight: 600;
+            border: 1px solid #fbcfe8;
+        }
+        .md-content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 10px 0;
+            font-size: 0.82rem;
+        }
+        .md-content th, .md-content td {
+            border: 1px solid #e2e8f0;
+            padding: 7px 10px;
+            text-align: left;
+        }
+        .md-content th {
+            background: #fdf2f8;
+            color: #831843;
+            font-weight: 700;
+        }
+        .md-content blockquote {
+            border-left: 4px solid #be185d;
+            background: #fdf2f8;
+            padding: 8px 12px;
+            border-radius: 0 8px 8px 0;
+            margin: 8px 0;
+            font-size: 0.86rem;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+    <!-- Top Official Banner -->
+    <div class="vwa-gradient text-white text-xs sm:text-sm py-2 px-4 sm:px-6 flex flex-wrap justify-between items-center gap-2">
+        <div class="font-medium">
+            🏛️ <strong>HỌC VIỆN PHỤ NỮ VIỆT NAM (VWA)</strong> — Mã trường: <span class="bg-white/20 px-1.5 py-0.5 rounded font-bold">HPN</span> (Hà Nội) | <span class="bg-white/20 px-1.5 py-0.5 rounded font-bold">SPN</span> (TP.HCM)
+        </div>
+        <div class="flex items-center gap-3 text-xs sm:text-sm">
+            <span>☎️ Hotline: <strong class="text-yellow-300">0243.775.1750</strong> - <strong class="text-yellow-300">0912.991.355</strong></span>
+            <span class="hidden md:inline">|</span>
+            <span class="hidden md:inline text-emerald-200 font-semibold">● Bản Chuyên sâu Đa tầng NLU (Mở là chạy ngay 100%)</span>
+        </div>
+    </div>
+
+    <!-- Main Navigation -->
+    <header class="bg-white border-b border-slate-200 sticky top-0 z-40 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex flex-wrap justify-between items-center gap-3">
+            <div class="flex items-center gap-3">
+                <div class="w-11 h-11 rounded-xl vwa-header-gradient text-white font-extrabold text-base flex items-center justify-center shadow-md">
+                    VWA
+                </div>
+                <div>
+                    <h1 class="text-base sm:text-lg font-extrabold text-pink-900 leading-tight">HỌC VIỆN PHỤ NỮ VIỆT NAM</h1>
+                    <p class="text-xs text-slate-500 font-medium">Hệ thống Web &amp; Chatbot AI Tư vấn Tuyển sinh Đại học Chính quy 2026</p>
+                </div>
+            </div>
+
+            <nav class="flex flex-wrap gap-1.5" id="main-nav">
+                <button type="button" data-tab="tab-chat" class="nav-tab-btn px-3.5 py-2 rounded-lg text-xs sm:text-sm font-semibold transition-all bg-pink-800 text-white shadow-sm">
+                    🤖 Chatbot AI Tư vấn
+                </button>
+                <button type="button" data-tab="tab-majors" class="nav-tab-btn px-3.5 py-2 rounded-lg text-xs sm:text-sm font-semibold transition-all text-slate-600 hover:bg-slate-100">
+                    🎓 19 Ngành &amp; Điểm chuẩn
+                </button>
+                <button type="button" data-tab="tab-calculator" class="nav-tab-btn px-3.5 py-2 rounded-lg text-xs sm:text-sm font-semibold transition-all text-slate-600 hover:bg-slate-100">
+                    🧮 Tính điểm &amp; Gợi ý Ngành
+                </button>
+                <button type="button" data-tab="tab-register" class="nav-tab-btn px-3.5 py-2 rounded-lg text-xs sm:text-sm font-semibold transition-all text-slate-600 hover:bg-slate-100">
+                    📝 Đăng ký Tư vấn
+                </button>
+                <button type="button" data-tab="tab-admin" class="nav-tab-btn px-3.5 py-2 rounded-lg text-xs sm:text-sm font-semibold transition-all text-slate-600 hover:bg-slate-100">
+                    🗄️ Quản trị Database (<span id="nav-db-count">55</span>)
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Toast Notification -->
+    <div id="toast-box" class="fixed bottom-5 right-5 z-50 hidden bg-slate-900 text-white px-4 py-3 rounded-xl shadow-lg text-sm font-medium flex items-center gap-2">
+        <span id="toast-text">Đã lưu thành công!</span>
+    </div>
+
+    <!-- Main Container -->
+    <main class="max-w-7xl w-full mx-auto px-4 sm:px-6 py-6 flex-1">
+        <!-- TAB 1: CHATBOT AI -->
+        <section id="tab-chat" class="tab-section block">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+                <!-- Left Sidebar -->
+                <aside class="lg:col-span-4 bg-white rounded-2xl border border-slate-200 p-5 shadow-sm flex flex-col gap-4">
+                    <div class="grid grid-cols-2 gap-2.5">
+                        <div class="bg-pink-50 border border-pink-200 p-2.5 rounded-xl text-center">
+                            <strong class="block text-lg font-extrabold text-pink-900">2.690</strong>
+                            <span class="text-[11px] text-slate-600">Chỉ tiêu ĐH 2026</span>
+                        </div>
+                        <div class="bg-pink-50 border border-pink-200 p-2.5 rounded-xl text-center">
+                            <strong class="block text-lg font-extrabold text-pink-900">19</strong>
+                            <span class="text-[11px] text-slate-600">Chương trình ĐT</span>
+                        </div>
+                        <div class="bg-pink-50 border border-pink-200 p-2.5 rounded-xl text-center">
+                            <strong class="block text-sm font-extrabold text-pink-900">550k–605k</strong>
+                            <span class="text-[11px] text-slate-600">VNĐ / Tín chỉ</span>
+                        </div>
+                        <div class="bg-pink-50 border border-pink-200 p-2.5 rounded-xl text-center">
+                            <strong class="block text-lg font-extrabold text-pink-900">1.792</strong>
+                            <span class="text-[11px] text-slate-600">Chỗ ở Ký túc xá</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3 class="text-xs sm:text-sm font-bold text-slate-800 mb-2 flex items-center justify-between">
+                            <span>⚡ Câu hỏi gợi ý nhanh (Ấn là chạy ngay)</span>
+                            <span class="text-[11px] font-normal text-pink-700 bg-pink-50 px-2 py-0.5 rounded-full">12 chủ đề</span>
+                        </h3>
+                        <div class="flex flex-col gap-1.5 max-h-[380px] overflow-y-auto pr-1 chat-scroll" id="quick-prompts-list">
+                            <button type="button" data-prompt="Bảng điểm chuẩn tất cả 19 ngành năm 2026 của Học viện Phụ nữ Việt Nam" class="quick-prompt-btn text-left text-xs bg-slate-50 hover:bg-pink-50 border border-slate-200 hover:border-pink-300 text-slate-700 hover:text-pink-900 px-3 py-2 rounded-lg transition-all font-medium">
+                                📊 Điểm chuẩn tất cả 19 ngành năm 2026
+                            </button>
+                            <button type="button" data-prompt="Tư vấn chi tiết ngành Truyền thông đa phương tiện và Truyền thông xã hội" class="quick-prompt-btn text-left text-xs bg-slate-50 hover:bg-pink-50 border border-slate-200 hover:border-pink-300 text-slate-700 hover:text-pink-900 px-3 py-2 rounded-lg transition-all font-medium">
+                                🎬 Ngành Truyền thông đa phương tiện (26.1đ)
+                            </button>
+                            <button type="button" data-prompt="Tư vấn ngành Công nghệ thông tin và Thiết kế phát triển Game" class="quick-prompt-btn text-left text-xs bg-slate-50 hover:bg-pink-50 border border-slate-200 hover:border-pink-300 text-slate-700 hover:text-pink-900 px-3 py-2 rounded-lg transition-all font-medium">
+                                💻 Ngành CNTT &amp; Thiết kế phát triển Game
+                            </button>
+                            <button type="button" data-prompt="So sánh ngành Luật và ngành Luật kinh tế tại Học viện Phụ nữ Việt Nam" class="quick-prompt-btn text-left text-xs bg-slate-50 hover:bg-pink-50 border border-slate-200 hover:border-pink-300 text-slate-700 hover:text-pink-900 px-3 py-2 rounded-lg transition-all font-medium">
+                                ⚖️ So sánh ngành Luật và Luật kinh tế
+                            </button>
+                            <button type="button" data-prompt="Mình được 24.5 điểm khối D01 thì đỗ những ngành nào của trường?" class="quick-prompt-btn text-left text-xs bg-slate-50 hover:bg-pink-50 border border-slate-200 hover:border-pink-300 text-slate-700 hover:text-pink-900 px-3 py-2 rounded-lg transition-all font-medium">
+                                🎯 Được 24.5 điểm khối D01 đỗ ngành nào?
+                            </button>
+                            <button type="button" data-prompt="Học viện Phụ nữ Việt Nam có tuyển sinh nam giới không?" class="quick-prompt-btn text-left text-xs bg-slate-50 hover:bg-pink-50 border border-slate-200 hover:border-pink-300 text-slate-700 hover:text-pink-900 px-3 py-2 rounded-lg transition-all font-medium">
+                                🙋‍♂️ Học viện có tuyển sinh Nam giới không?
+                            </button>
+                            <button type="button" data-prompt="Các phương thức xét tuyển và cách tính điểm xét học bạ năm 2026" class="quick-prompt-btn text-left text-xs bg-slate-50 hover:bg-pink-50 border border-slate-200 hover:border-pink-300 text-slate-700 hover:text-pink-900 px-3 py-2 rounded-lg transition-all font-medium">
+                                📋 5 Phương thức xét tuyển &amp; Xét học bạ
+                            </button>
+                            <button type="button" data-prompt="Có chứng chỉ IELTS 6.0 hoặc 6.5 được quy đổi và cộng điểm như thế nào?" class="quick-prompt-btn text-left text-xs bg-slate-50 hover:bg-pink-50 border border-slate-200 hover:border-pink-300 text-slate-700 hover:text-pink-900 px-3 py-2 rounded-lg transition-all font-medium">
+                                🌐 Bảng quy đổi điểm IELTS, TOEFL &amp; SAT
+                            </button>
+                            <button type="button" data-prompt="Học phí 1 học kỳ, chính sách học bổng và ký túc xá của trường như thế nào?" class="quick-prompt-btn text-left text-xs bg-slate-50 hover:bg-pink-50 border border-slate-200 hover:border-pink-300 text-slate-700 hover:text-pink-900 px-3 py-2 rounded-lg transition-all font-medium">
+                                💰 Học phí, Học bổng &amp; Ký túc xá 1.792 chỗ
+                            </button>
+                            <button type="button" data-prompt="Hồ sơ nhập học năm 2026 gồm những giấy tờ gì và thời gian nhập học khi nào?" class="quick-prompt-btn text-left text-xs bg-slate-50 hover:bg-pink-50 border border-slate-200 hover:border-pink-300 text-slate-700 hover:text-pink-900 px-3 py-2 rounded-lg transition-all font-medium">
+                                📂 Hồ sơ thủ tục &amp; Lịch nhập học 2026
+                            </button>
+                            <button type="button" data-prompt="Phân hiệu Học viện Phụ nữ Việt Nam tại TP.HCM (mã SPN) tuyển sinh những ngành nào?" class="quick-prompt-btn text-left text-xs bg-slate-50 hover:bg-pink-50 border border-slate-200 hover:border-pink-300 text-slate-700 hover:text-pink-900 px-3 py-2 rounded-lg transition-all font-medium">
+                                🏙️ Tuyển sinh tại Phân hiệu TP.HCM (Mã SPN)
+                            </button>
+                            <button type="button" data-prompt="Mình thích kinh doanh công nghệ nhưng sợ điểm cao thì nên chọn ngành nào dễ đỗ?" class="quick-prompt-btn text-left text-xs bg-slate-50 hover:bg-pink-50 border border-slate-200 hover:border-pink-300 text-slate-700 hover:text-pink-900 px-3 py-2 rounded-lg transition-all font-medium">
+                                💡 Tư vấn chọn ngành theo sở thích &amp; dễ đỗ
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="bg-sky-50 border border-sky-200 p-3 rounded-xl">
+                        <h3 class="text-xs font-bold text-sky-900 mb-1">🔑 Kết nối Google Gemini API (Tùy chọn)</h3>
+                        <input type="password" id="gemini-api-key" placeholder="Dán GEMINI_API_KEY (nếu muốn gọi LLM)..." class="w-full px-3 py-1.5 text-xs bg-white border border-sky-300 rounded-lg focus:outline-none focus:border-sky-600">
+                        <p class="text-[11px] text-sky-800 mt-1 leading-relaxed">
+                            Mặc định hệ thống chạy <strong>Bộ máy Deep Hybrid NLU + SQL-RAG</strong> hiểu câu hỏi đa ý định và trả lời từ Database nhúng sẵn (không cần mạng/API key).
+                        </p>
+                    </div>
+                </aside>
+
+                <!-- Chat Main Panel -->
+                <div class="lg:col-span-8 bg-white rounded-2xl border border-slate-200 shadow-md flex flex-col h-[700px] overflow-hidden">
+                    <div class="vwa-header-gradient text-white px-5 py-3.5 flex justify-between items-center">
+                        <div>
+                            <h2 class="font-bold text-base">Trợ lý AI Tư vấn Tuyển sinh Chuyên sâu VWA</h2>
+                            <p class="text-xs text-pink-100">Hỗ trợ phân tích đa ý định, so sánh ngành, tính điểm học bạ/IELTS &amp; gợi ý câu hỏi thông minh</p>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span id="engine-badge" class="bg-white/20 px-3 py-1 rounded-full text-xs font-semibold">Deep Hybrid NLU-RAG</span>
+                            <button type="button" id="clear-chat-btn" class="bg-white/15 hover:bg-white/25 px-2.5 py-1 rounded-lg text-xs font-medium transition">Làm mới chat</button>
+                        </div>
+                    </div>
+
+                    <div id="chat-messages" class="flex-1 p-5 overflow-y-auto chat-scroll flex flex-col gap-4 bg-slate-50/50">
+                        <div class="flex gap-3 max-w-[92%]">
+                            <div class="w-9 h-9 rounded-full bg-pink-800 text-white font-bold text-xs flex items-center justify-center shrink-0 shadow">VWA</div>
+                            <div class="bg-white border border-slate-200 rounded-2xl rounded-tl-sm px-4 py-3.5 shadow-sm text-sm md-content">
+                                <h3>Xin chào sĩ tử và quý phụ huynh! 👋</h3>
+                                <p>Mình là <strong>Chuyên gia AI Tư vấn Tuyển sinh</strong> của <strong>Học viện Phụ nữ Việt Nam (Mã trường: HPN / SPN)</strong>.</p>
+                                <p class="mt-1">Bạn có thể hỏi mình <strong>bất kỳ câu hỏi nào</strong> — từ tra cứu điểm chuẩn, so sánh 2 ngành học, hỏi học phí + ký túc xá + học bổng trong cùng 1 câu, tính điểm xét tuyển kèm IELTS, cho đến tư vấn hướng nghiệp theo sở thích:</p>
+                                <div class="mt-3 pt-2.5 border-t border-slate-100 flex flex-wrap gap-1.5">
+                                    <button type="button" data-prompt="Bảng điểm chuẩn tất cả 19 ngành năm 2026 của Học viện Phụ nữ Việt Nam" class="inline-chip-btn text-xs bg-pink-50 hover:bg-pink-100 text-pink-900 border border-pink-200 px-2.5 py-1 rounded-full font-medium transition">📊 Điểm chuẩn 19 ngành 2026</button>
+                                    <button type="button" data-prompt="Học phí 1 học kỳ, chính sách học bổng và ký túc xá của trường như thế nào?" class="inline-chip-btn text-xs bg-pink-50 hover:bg-pink-100 text-pink-900 border border-pink-200 px-2.5 py-1 rounded-full font-medium transition">💰 Học phí + Học bổng + KTX</button>
+                                    <button type="button" data-prompt="Mình được 24.5 điểm khối D01 và có IELTS 6.0 thì đỗ ngành nào?" class="inline-chip-btn text-xs bg-pink-50 hover:bg-pink-100 text-pink-900 border border-pink-200 px-2.5 py-1 rounded-full font-medium transition">🎯 24.5 điểm D01 + IELTS 6.0</button>
+                                    <button type="button" data-prompt="So sánh ngành Kinh tế và ngành Kinh tế số" class="inline-chip-btn text-xs bg-pink-50 hover:bg-pink-100 text-pink-900 border border-pink-200 px-2.5 py-1 rounded-full font-medium transition">⚖️ So sánh Kinh tế &amp; Kinh tế số</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <form id="chat-form" class="p-3.5 bg-white border-t border-slate-200 flex gap-2.5">
+                        <input type="text" id="chat-input" placeholder="Hỏi bất kỳ câu gì (VD: So sánh CNTT và Kinh tế số, 23 điểm A00 đỗ ngành nào, hồ sơ nhập học...)" autocomplete="off" class="flex-1 px-4 py-2.5 border border-slate-300 rounded-xl text-sm focus:outline-none focus:border-pink-700">
+                        <button type="submit" id="chat-submit-btn" class="bg-pink-800 hover:bg-pink-900 text-white font-semibold px-5 py-2.5 rounded-xl text-sm transition shadow-sm shrink-0">
+                            Gửi câu hỏi ➤
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB 2: TRA CỨU 19 NGÀNH & ĐIỂM CHUẨN -->
+        <section id="tab-majors" class="tab-section hidden">
+            <div class="bg-white rounded-2xl border border-slate-200 p-5 sm:p-6 shadow-sm">
+                <div class="flex flex-wrap justify-between items-center gap-4 mb-5">
+                    <div>
+                        <h2 class="text-lg sm:text-xl font-extrabold text-pink-900">🎓 Danh mục 19 Chương trình Đào tạo &amp; Điểm chuẩn Chính thức 2026</h2>
+                        <p class="text-xs sm:text-sm text-slate-500">Dữ liệu trích xuất trực tiếp từ bảng <code class="bg-slate-100 px-1.5 py-0.5 rounded text-pink-800 font-semibold">majors</code> (17 ngành tại Hà Nội HPN &amp; 2 ngành tại Phân hiệu TP.HCM SPN)</p>
+                    </div>
+                    <div class="flex flex-wrap gap-2.5 w-full sm:w-auto">
+                        <input type="text" id="search-major-input" placeholder="🔍 Tìm tên ngành, mã ngành, tổ hợp (A00, D01, X26)..." class="px-3.5 py-2 border border-slate-300 rounded-xl text-sm flex-1 sm:w-72">
+                        <select id="campus-filter" class="px-3.5 py-2 border border-slate-300 rounded-xl text-sm bg-white">
+                            <option value="ALL">Tất cả cơ sở (Hà Nội &amp; TP.HCM)</option>
+                            <option value="HPN">Trụ sở chính Hà Nội (Mã HPN)</option>
+                            <option value="SPN">Phân hiệu TP. Hồ Chí Minh (Mã SPN)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div id="majors-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"></div>
+            </div>
+        </section>
+
+        <!-- TAB 3: TÍNH ĐIỂM & GỢI Ý NGÀNH -->
+        <section id="tab-calculator" class="tab-section hidden">
+            <div class="bg-white rounded-2xl border border-slate-200 p-5 sm:p-6 shadow-sm">
+                <div class="mb-5">
+                    <h2 class="text-lg sm:text-xl font-extrabold text-pink-900">🧮 Công cụ Tính Điểm Xét Tuyển &amp; Đánh giá Khả năng Đỗ (Chuẩn Quy chế 2026)</h2>
+                    <p class="text-xs sm:text-sm text-slate-500">Tự động cộng điểm khuyến khích IELTS/HSG và áp dụng công thức giảm dần điểm ưu tiên khi tổng điểm ≥ 22.5 của Bộ GD&amp;ĐT</p>
+                </div>
+
+                <form id="calc-form" class="space-y-4">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 mb-1">Điểm Môn 1 (Thang 10)</label>
+                            <input type="number" id="calc-m1" step="0.01" min="0" max="10" value="8.25" required class="w-full px-3.5 py-2 border border-slate-300 rounded-xl text-sm">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 mb-1">Điểm Môn 2 (Thang 10)</label>
+                            <input type="number" id="calc-m2" step="0.01" min="0" max="10" value="8.00" required class="w-full px-3.5 py-2 border border-slate-300 rounded-xl text-sm">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 mb-1">Điểm Môn 3 (Thang 10)</label>
+                            <input type="number" id="calc-m3" step="0.01" min="0" max="10" value="8.25" required class="w-full px-3.5 py-2 border border-slate-300 rounded-xl text-sm">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 mb-1">Tổ hợp đăng ký xét tuyển</label>
+                            <select id="calc-block" class="w-full px-3.5 py-2 border border-slate-300 rounded-xl text-sm bg-white">
+                                <option value="D01">D01 (Toán, Văn, Anh)</option>
+                                <option value="A00">A00 (Toán, Lý, Hóa)</option>
+                                <option value="A01">A01 (Toán, Lý, Anh)</option>
+                                <option value="C00">C00 (Văn, Sử, Địa)</option>
+                                <option value="C03">C03 (Văn, Toán, Sử)</option>
+                                <option value="D14">D14 (Văn, Sử, Anh)</option>
+                                <option value="D15">D15 (Văn, Địa, Anh)</option>
+                                <option value="D07">D07 (Toán, Hóa, Anh)</option>
+                                <option value="D09">D09 (Toán, Sử, Anh)</option>
+                                <option value="X06">X06 (Toán, Lý, Tin học)</option>
+                                <option value="X26">X26 (Toán, Anh, Tin học)</option>
+                                <option value="ALL">Tất cả tổ hợp</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 mb-1">Chứng chỉ IELTS (nếu có)</label>
+                            <select id="calc-ielts" class="w-full px-3.5 py-2 border border-slate-300 rounded-xl text-sm bg-white">
+                                <option value="0">Không có IELTS</option>
+                                <option value="5.0">IELTS 5.0 (+0.25đ / Quy đổi 7.0)</option>
+                                <option value="5.5">IELTS 5.5 (+0.50đ / Quy đổi 8.0)</option>
+                                <option value="6.0">IELTS 6.0 (+0.75đ / Quy đổi 9.0)</option>
+                                <option value="6.5">IELTS 6.5 (+1.00đ / Quy đổi 9.5)</option>
+                                <option value="7.0">IELTS ≥ 7.0 (+1.50đ / Quy đổi 10.0)</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 mb-1">Điểm thưởng giải HSG (0 - 3.0đ)</label>
+                            <select id="calc-bonus" class="w-full px-3.5 py-2 border border-slate-300 rounded-xl text-sm bg-white">
+                                <option value="0">Không có giải HSG</option>
+                                <option value="1.0">Giải Ba HSG cấp Tỉnh (+1.0đ)</option>
+                                <option value="1.25">Giải Nhì HSG cấp Tỉnh (+1.25đ)</option>
+                                <option value="1.5">Giải Nhất Tỉnh / KK Quốc gia (+1.5đ)</option>
+                                <option value="3.0">Giải Nhất/Nhì/Ba Quốc gia (+3.0đ)</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 mb-1">Điểm ưu tiên Khu vực &amp; Đối tượng</label>
+                            <select id="calc-priority" class="w-full px-3.5 py-2 border border-slate-300 rounded-xl text-sm bg-white">
+                                <option value="0">KV3 (0 điểm)</option>
+                                <option value="0.25">KV2 (0.25 điểm)</option>
+                                <option value="0.5">KV2-NT (0.50 điểm)</option>
+                                <option value="0.75">KV1 (0.75 điểm)</option>
+                                <option value="1.75">KV1 + Đối tượng ưu tiên (+1.75 điểm)</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 mb-1">Cơ sở đào tạo</label>
+                            <select id="calc-campus" class="w-full px-3.5 py-2 border border-slate-300 rounded-xl text-sm bg-white">
+                                <option value="ALL">Tất cả cơ sở (HPN &amp; SPN)</option>
+                                <option value="HPN">Hà Nội (HPN)</option>
+                                <option value="SPN">TP. Hồ Chí Minh (SPN)</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button type="submit" class="bg-pink-800 hover:bg-pink-900 text-white font-semibold px-6 py-2.5 rounded-xl text-sm transition shadow-sm">
+                        🚀 Phân tích Điểm &amp; So khớp Điểm chuẩn 2026
+                    </button>
+                </form>
+
+                <div id="calc-result-area" class="mt-6">
+                    <div id="calc-summary-banner" class="grid grid-cols-2 sm:grid-cols-4 gap-3 bg-gradient-to-r from-pink-50 to-sky-50 border border-pink-200 rounded-2xl p-4 mb-5 text-center"></div>
+                    <div class="overflow-x-auto border border-slate-200 rounded-xl">
+                        <table class="w-full text-left border-collapse text-sm">
+                            <thead>
+                                <tr class="bg-slate-100 text-slate-700 border-b border-slate-200">
+                                    <th class="p-3 font-bold">Mã XT</th>
+                                    <th class="p-3 font-bold">Ngành / Chương trình đào tạo</th>
+                                    <th class="p-3 font-bold">Cơ sở</th>
+                                    <th class="p-3 font-bold">Tổ hợp</th>
+                                    <th class="p-3 font-bold">Điểm chuẩn 2026</th>
+                                    <th class="p-3 font-bold">Chênh lệch</th>
+                                    <th class="p-3 font-bold">Đánh giá Khả năng Trúng tuyển</th>
+                                </tr>
+                            </thead>
+                            <tbody id="calc-table-body" class="divide-y divide-slate-200"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB 4: ĐĂNG KÝ NHẬN TƯ VẤN (LEADS) -->
+        <section id="tab-register" class="tab-section hidden">
+            <div class="bg-white rounded-2xl border border-slate-200 p-5 sm:p-6 shadow-sm max-w-3xl mx-auto">
+                <div class="mb-5">
+                    <h2 class="text-lg sm:text-xl font-extrabold text-pink-900">📝 Đăng ký Nhận Tư vấn Tuyển sinh Chuyên sâu 1-1</h2>
+                    <p class="text-xs sm:text-sm text-slate-500">Dữ liệu đăng ký được lưu trực tiếp vào bảng <code class="bg-slate-100 px-1.5 py-0.5 rounded text-pink-800 font-semibold">leads</code> trong Database của hệ thống.</p>
+                </div>
+
+                <form id="lead-form" class="space-y-4">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 mb-1">Họ và tên thí sinh *</label>
+                            <input type="text" id="lead-name" placeholder="VD: Nguyễn Phương Thảo" required class="w-full px-3.5 py-2 border border-slate-300 rounded-xl text-sm">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 mb-1">Số điện thoại (Zalo) *</label>
+                            <input type="tel" id="lead-phone" placeholder="VD: 0987654321" required class="w-full px-3.5 py-2 border border-slate-300 rounded-xl text-sm">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 mb-1">Địa chỉ Email</label>
+                            <input type="email" id="lead-email" placeholder="VD: phuongthao@gmail.com" class="w-full px-3.5 py-2 border border-slate-300 rounded-xl text-sm">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 mb-1">Tỉnh / Thành phố (Trường THPT)</label>
+                            <input type="text" id="lead-province" placeholder="VD: THPT Cầu Giấy - Hà Nội" class="w-full px-3.5 py-2 border border-slate-300 rounded-xl text-sm">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 mb-1">Ngành học quan tâm nhất *</label>
+                            <select id="lead-major" required class="w-full px-3.5 py-2 border border-slate-300 rounded-xl text-sm bg-white"></select>
+                        </div>
+                        <div class="grid grid-cols-2 gap-2.5">
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 mb-1">Tổ hợp xét</label>
+                                <select id="lead-block" class="w-full px-3 py-2 border border-slate-300 rounded-xl text-sm bg-white">
+                                    <option value="D01">D01</option>
+                                    <option value="A00">A00</option>
+                                    <option value="A01">A01</option>
+                                    <option value="C00">C00</option>
+                                    <option value="C03">C03</option>
+                                    <option value="D14">D14</option>
+                                    <option value="D15">D15</option>
+                                    <option value="X06">X06</option>
+                                    <option value="X26">X26</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 mb-1">Điểm dự kiến</label>
+                                <input type="number" id="lead-score" step="0.05" min="10" max="30" placeholder="24.5" class="w-full px-3 py-2 border border-slate-300 rounded-xl text-sm">
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-1">Câu hỏi hoặc nguyện vọng cần thầy cô giải đáp</label>
+                        <textarea id="lead-note" rows="3" placeholder="VD: Em muốn hỏi về hồ sơ xét học bạ và đăng ký phòng Ký túc xá tại 68 Nguyễn Chí Thanh..." class="w-full px-3.5 py-2 border border-slate-300 rounded-xl text-sm"></textarea>
+                    </div>
+                    <button type="submit" class="bg-pink-800 hover:bg-pink-900 text-white font-semibold px-6 py-2.5 rounded-xl text-sm transition shadow-sm">
+                        📩 Lưu Thông tin vào Cơ sở dữ liệu
+                    </button>
+                </form>
+            </div>
+        </section>
+
+        <!-- TAB 5: QUẢN TRỊ DATABASE (ADMIN DASHBOARD) -->
+        <section id="tab-admin" class="tab-section hidden space-y-6">
+            <!-- KPI Row -->
+            <div id="admin-kpi-grid" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4"></div>
+
+            <!-- Database Export / Import / Reset Toolbar -->
+            <div class="bg-white rounded-2xl border border-slate-200 p-5 shadow-sm flex flex-wrap justify-between items-center gap-4">
+                <div>
+                    <h2 class="text-base sm:text-lg font-extrabold text-pink-900">🗄️ Trình Quản lý Cơ sở dữ liệu Tuyển sinh VWA (6 Bảng dữ liệu)</h2>
+                    <p class="text-xs text-slate-500">Toàn bộ thay đổi được lưu bền vững trong trình duyệt và có thể xuất ra file JSON/SQL để nộp báo cáo đồ án.</p>
+                </div>
+                <div class="flex flex-wrap gap-2">
+                    <button type="button" id="btn-export-json" class="bg-sky-700 hover:bg-sky-800 text-white text-xs font-semibold px-3.5 py-2 rounded-xl transition">
+                        ⬇️ Xuất Database (.JSON)
+                    </button>
+                    <button type="button" id="btn-reset-db" class="bg-slate-200 hover:bg-slate-300 text-slate-800 text-xs font-semibold px-3.5 py-2 rounded-xl transition">
+                        🔄 Khôi phục Database Gốc
+                    </button>
+                </div>
+            </div>
+
+            <!-- Leads Management Table -->
+            <div class="bg-white rounded-2xl border border-slate-200 p-5 shadow-sm">
+                <h3 class="text-base font-bold text-slate-800 mb-3">📋 Bảng <code class="text-pink-800">leads</code> — Danh sách Thí sinh Đăng ký Tư vấn</h3>
+                <div class="overflow-x-auto border border-slate-200 rounded-xl">
+                    <table class="w-full text-left border-collapse text-xs sm:text-sm">
+                        <thead>
+                            <tr class="bg-slate-100 text-slate-700 border-b border-slate-200">
+                                <th class="p-3 font-bold">ID</th>
+                                <th class="p-3 font-bold">Họ và tên</th>
+                                <th class="p-3 font-bold">Số điện thoại</th>
+                                <th class="p-3 font-bold">Trường / Tỉnh</th>
+                                <th class="p-3 font-bold">Ngành đăng ký</th>
+                                <th class="p-3 font-bold">Khối / Điểm</th>
+                                <th class="p-3 font-bold">Câu hỏi ghi chú</th>
+                                <th class="p-3 font-bold">Trạng thái</th>
+                            </tr>
+                        </thead>
+                        <tbody id="admin-leads-tbody" class="divide-y divide-slate-200"></tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Add New FAQ Knowledge to Database -->
+            <div class="bg-white rounded-2xl border border-slate-200 p-5 shadow-sm">
+                <h3 class="text-base font-bold text-slate-800 mb-3">➕ Nạp thêm Tri thức Tuyển sinh mới vào Bảng <code class="text-pink-800">faqs_knowledge</code></h3>
+                <form id="faq-form" class="space-y-3">
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 mb-1">Chủ đề (Category)</label>
+                            <input type="text" id="faq-category" placeholder="VD: Thủ tục nhập học" required class="w-full px-3 py-2 border border-slate-300 rounded-xl text-sm">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 mb-1">Câu hỏi mẫu</label>
+                            <input type="text" id="faq-question" placeholder="VD: Hồ sơ nhập học cần những giấy tờ gì?" required class="w-full px-3 py-2 border border-slate-300 rounded-xl text-sm">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 mb-1">Từ khóa nhận diện (cách nhau dấu phẩy)</label>
+                            <input type="text" id="faq-keywords" placeholder="VD: hồ sơ nhập học, giấy tờ nhập học" required class="w-full px-3 py-2 border border-slate-300 rounded-xl text-sm">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-1">Nội dung câu trả lời chuẩn để AI tư vấn</label>
+                        <textarea id="faq-answer" rows="2" placeholder="Nhập nội dung trả lời chính xác..." required class="w-full px-3 py-2 border border-slate-300 rounded-xl text-sm"></textarea>
+                    </div>
+                    <button type="submit" class="bg-pink-800 hover:bg-pink-900 text-white font-semibold px-5 py-2 rounded-xl text-xs sm:text-sm transition">
+                        💾 Lưu vào Kho Tri thức AI
+                    </button>
+                </form>
+
+                <div class="mt-4 overflow-x-auto border border-slate-200 rounded-xl">
+                    <table class="w-full text-left border-collapse text-xs sm:text-sm">
+                        <thead>
+                            <tr class="bg-slate-100 text-slate-700 border-b border-slate-200">
+                                <th class="p-2.5 font-bold">ID</th>
+                                <th class="p-2.5 font-bold">Chủ đề</th>
+                                <th class="p-2.5 font-bold">Câu hỏi</th>
+                                <th class="p-2.5 font-bold">Từ khóa</th>
+                            </tr>
+                        </thead>
+                        <tbody id="admin-faqs-tbody" class="divide-y divide-slate-200"></tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Chat Logs Table -->
+            <div class="bg-white rounded-2xl border border-slate-200 p-5 shadow-sm">
+                <h3 class="text-base font-bold text-slate-800 mb-3">💬 Bảng <code class="text-pink-800">chat_logs</code> — Nhật ký Hội thoại Chatbot AI</h3>
+                <div class="overflow-x-auto border border-slate-200 rounded-xl">
+                    <table class="w-full text-left border-collapse text-xs sm:text-sm">
+                        <thead>
+                            <tr class="bg-slate-100 text-slate-700 border-b border-slate-200">
+                                <th class="p-3 font-bold">ID</th>
+                                <th class="p-3 font-bold">Câu hỏi của Thí sinh</th>
+                                <th class="p-3 font-bold">Ý định (Intent)</th>
+                                <th class="p-3 font-bold">Chế độ xử lý</th>
+                                <th class="p-3 font-bold">Thời gian</th>
+                            </tr>
+                        </thead>
+                        <tbody id="admin-chats-tbody" class="divide-y divide-slate-200"></tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // ============================================================================
+        // 1. CƠ SỞ DỮ LIỆU TUYỂN SINH VWA 2026 NHÚNG TRỰC TIẾP (6 BẢNG ĐẦY ĐỦ)
+        // ============================================================================
+        const DEFAULT_VWA_DB = {
+  "majors": [
+    {
+      "id": 11,
+      "admission_code": "7320104",
+      "major_code": "7320104",
+      "name": "Truyền thông đa phương tiện",
+      "campus": "HPN (Hà Nội)",
+      "faculty": "Khoa Truyền thông đa phương tiện",
+      "quota_2026": 130,
+      "subject_combos": "C00, C03, D01, D14, D15",
+      "score_thpt_2026": 26.1,
+      "score_detail_2026": "26.10 điểm (D01, C00); 25.60 điểm (C03, D14, D15) - Cao nhất toàn Học viện",
+      "score_thpt_2025": 25.12,
+      "score_hocba_2025": 26.34,
+      "tuition_per_credit": "550.000 - 605.000 VNĐ/tín chỉ",
+      "estimated_semester_tuition": "Khoảng 10.0 - 12.0 triệu VNĐ/học kỳ",
+      "description": "Ngành học hot nhất tại VWA, trang bị kỹ năng sản xuất nội dung số, báo chí truyền hình, thiết kế đồ họa, quay dựng phim, PR và quản trị chiến dịch truyền thông tích hợp.",
+      "career_prospects": "Chuyên viên PR, Content Creator, Đạo diễn hình ảnh, Biên tập viên truyền hình/báo chí, Chuyên viên thiết kế đồ họa & Digital Media tại các Agency.",
+      "special_conditions": "Ngành có điểm chuẩn cao nhất Học viện năm 2026 (26.10 điểm)."
+    },
+    {
+      "id": 10,
+      "admission_code": "7810103",
+      "major_code": "7810103",
+      "name": "Quản trị dịch vụ du lịch và lữ hành",
+      "campus": "HPN (Hà Nội)",
+      "faculty": "Khoa Quản trị kinh doanh",
+      "quota_2026": 250,
+      "subject_combos": "A00, A01, C00, C03, D01, D14, D15",
+      "score_thpt_2026": 25.17,
+      "score_detail_2026": "25.17 điểm (A00, D01); 24.67 điểm (A01, C03, D14, D15); 24.17 điểm (C00)",
+      "score_thpt_2025": 24.41,
+      "score_hocba_2025": 25.81,
+      "tuition_per_credit": "550.000 - 605.000 VNĐ/tín chỉ",
+      "estimated_semester_tuition": "Khoảng 9.5 - 11.5 triệu VNĐ/học kỳ",
+      "description": "Đào tạo thực chiến về thiết kế điều hành tour, quản trị khách sạn - resort, tổ chức sự kiện (MICE), hướng dẫn du lịch và truyền thông điểm đến.",
+      "career_prospects": "Quản lý điều hành tour, Quản trị khách sạn/resort 4-5 sao, Chuyên viên tổ chức sự kiện, Hướng dẫn viên quốc tế.",
+      "special_conditions": "Ngành có điểm chuẩn thuộc nhóm dẫn đầu của Học viện với 250 chỉ tiêu tại Hà Nội."
+    },
+    {
+      "id": 12,
+      "admission_code": "73201041",
+      "major_code": "7320104",
+      "name": "Truyền thông xã hội (thuộc ngành TTĐPT)",
+      "campus": "HPN (Hà Nội)",
+      "faculty": "Khoa Truyền thông đa phương tiện",
+      "quota_2026": 70,
+      "subject_combos": "C00, C03, D01, D14, D15",
+      "score_thpt_2026": 25.1,
+      "score_detail_2026": "25.10 điểm (D01, C00); 24.60 điểm (C03, D14, D15)",
+      "score_thpt_2025": 25.12,
+      "score_hocba_2025": 26.34,
+      "tuition_per_credit": "550.000 - 605.000 VNĐ/tín chỉ",
+      "estimated_semester_tuition": "Khoảng 10.0 - 12.0 triệu VNĐ/học kỳ",
+      "description": "Tập trung chuyên sâu vào quản trị mạng xã hội (Social Media), xây dựng thương hiệu số, phân tích xu hướng truyền thông mạng xã hội và xử lý khủng hoảng truyền thông.",
+      "career_prospects": "Social Media Manager, Quản trị cộng đồng, Chuyên viên truyền thông thương hiệu, KOL/KOC Management tại các doanh nghiệp và Agency.",
+      "special_conditions": "Cấp bằng tốt nghiệp đại học ngành Truyền thông đa phương tiện."
+    },
+    {
+      "id": 7,
+      "admission_code": "7760101",
+      "major_code": "7760101",
+      "name": "Công tác xã hội",
+      "campus": "HPN (Hà Nội)",
+      "faculty": "Khoa Công tác xã hội",
+      "quota_2026": 150,
+      "subject_combos": "C00, C03, D01, D14, D15",
+      "score_thpt_2026": 25.0,
+      "score_detail_2026": "25.00 điểm (D01); 24.50 điểm (C03, D14, D15); 24.00 điểm (C00)",
+      "score_thpt_2025": 24.17,
+      "score_hocba_2025": 25.63,
+      "tuition_per_credit": "550.000 - 605.000 VNĐ/tín chỉ",
+      "estimated_semester_tuition": "Khoảng 9.0 - 10.5 triệu VNĐ/học kỳ",
+      "description": "Ngành truyền thống thế mạnh của Học viện, đào tạo kỹ năng tham vấn, hỗ trợ tâm lý - xã hội, quản lý ca, phát triển cộng đồng và thực hiện chính sách an sinh xã hội.",
+      "career_prospects": "Chuyên viên tại các tổ chức phi chính phủ (NGOs) quốc tế, bệnh viện, trường học, cơ quan Lao động - Thương binh & Xã hội, Hội Liên hiệp Phụ nữ các cấp.",
+      "special_conditions": "Tổng điểm 3 môn thi tốt nghiệp THPT ≥ 15.0 điểm."
+    },
+    {
+      "id": 17,
+      "admission_code": "7340115",
+      "major_code": "7340115",
+      "name": "Marketing",
+      "campus": "HPN (Hà Nội)",
+      "faculty": "Khoa Quản trị kinh doanh",
+      "quota_2026": 190,
+      "subject_combos": "A00, A01, C00, C03, D01, D14, D15",
+      "score_thpt_2026": 24.85,
+      "score_detail_2026": "24.85 điểm (A00, D01, C00); 24.35 điểm (A01, C03, D14, D15)",
+      "score_thpt_2025": 24.93,
+      "score_hocba_2025": 26.2,
+      "tuition_per_credit": "550.000 - 605.000 VNĐ/tín chỉ",
+      "estimated_semester_tuition": "Khoảng 9.5 - 11.5 triệu VNĐ/học kỳ",
+      "description": "Đào tạo toàn diện về Digital Marketing, Quản trị thương hiệu, Nghiên cứu thị trường, Hành vi người tiêu dùng và Chiến lược truyền thông Marketing tích hợp (IMC).",
+      "career_prospects": "Chuyên viên Digital Marketing, Brand Manager, Nghiên cứu thị trường, Quản trị chiến dịch quảng cáo tại các tập đoàn và Agency.",
+      "special_conditions": "Điểm chuẩn luôn nằm trong Top 5 ngành cao nhất Học viện."
+    },
+    {
+      "id": 15,
+      "admission_code": "7310401",
+      "major_code": "7310401",
+      "name": "Tâm lý học",
+      "campus": "HPN (Hà Nội)",
+      "faculty": "Khoa Khoa học cơ bản / Tâm lý học",
+      "quota_2026": 230,
+      "subject_combos": "C00, C03, D01, D14, D15",
+      "score_thpt_2026": 24.6,
+      "score_detail_2026": "24.60 điểm (D01, C00); 24.10 điểm (C03, D14, D15)",
+      "score_thpt_2025": 24.17,
+      "score_hocba_2025": 25.63,
+      "tuition_per_credit": "550.000 - 605.000 VNĐ/tín chỉ",
+      "estimated_semester_tuition": "Khoảng 9.5 - 11.0 triệu VNĐ/học kỳ",
+      "description": "Đào tạo chuyên sâu về Tâm lý học tham vấn - trị liệu, Tâm lý học lâm sàng, Tâm lý học học đường và Tâm lý học quản trị nhân sự.",
+      "career_prospects": "Chuyên viên tham vấn tâm lý học đường, trị liệu tâm lý tại bệnh viện/trung tâm, chuyên viên nhân sự - đào tạo tại doanh nghiệp.",
+      "special_conditions": "Ngành thu hút đông thí sinh với 230 chỉ tiêu năm 2026."
+    },
+    {
+      "id": 1,
+      "admission_code": "7340101",
+      "major_code": "7340101",
+      "name": "Quản trị kinh doanh",
+      "campus": "HPN (Hà Nội)",
+      "faculty": "Khoa Quản trị kinh doanh",
+      "quota_2026": 170,
+      "subject_combos": "A00, A01, C00, C03, D01, D14, D15",
+      "score_thpt_2026": 24.52,
+      "score_detail_2026": "24.52 điểm (A00, D01, C00); 24.02 điểm (A01, C03, D14, D15)",
+      "score_thpt_2025": 23.93,
+      "score_hocba_2025": 25.45,
+      "tuition_per_credit": "550.000 - 605.000 VNĐ/tín chỉ",
+      "estimated_semester_tuition": "Khoảng 9.5 - 11.5 triệu VNĐ/học kỳ",
+      "description": "Đào tạo cử nhân Quản trị kinh doanh có kiến thức nền tảng và chuyên sâu về quản trị doanh nghiệp, quản trị chiến lược, khởi nghiệp, quản trị nhân sự, tài chính và thương mại điện tử.",
+      "career_prospects": "Chuyên viên/Quản lý tại các doanh nghiệp trong và ngoài nước, chuyên viên phát triển kinh doanh, quản trị dự án, khởi nghiệp hoặc làm việc tại các tổ chức kinh tế.",
+      "special_conditions": "Tổng điểm 3 môn thi tốt nghiệp THPT ≥ 15.0 điểm."
+    },
+    {
+      "id": 3,
+      "admission_code": "7380101",
+      "major_code": "7380101",
+      "name": "Luật",
+      "campus": "HPN (Hà Nội)",
+      "faculty": "Khoa Luật",
+      "quota_2026": 200,
+      "subject_combos": "A00, A01, C00, D01, D14, D15",
+      "score_thpt_2026": 24.0,
+      "score_detail_2026": "24.00 điểm (A00, D01); 23.50 điểm (A01, D14, D15); 23.00 điểm (C00)",
+      "score_thpt_2025": 23.68,
+      "score_hocba_2025": 25.26,
+      "tuition_per_credit": "550.000 - 605.000 VNĐ/tín chỉ",
+      "estimated_semester_tuition": "Khoảng 9.5 - 11.0 triệu VNĐ/học kỳ",
+      "description": "Đào tạo cử nhân Luật nắm vững hệ thống pháp luật Việt Nam và quốc tế, kỹ năng tranh tụng, tư vấn pháp lý, thực hành diễn án tại Tòa án giả định.",
+      "career_prospects": "Thẩm phán, Kiểm sát viên, Luật sư, Công chứng viên, Chuyên viên pháp chế doanh nghiệp, Cán bộ tư pháp tại cơ quan nhà nước.",
+      "special_conditions": "Điểm Toán và Ngữ văn (hoặc Toán/Ngữ văn trong tổ hợp) ≥ 6.0 điểm và tổng điểm 3 môn ≥ 18.0 điểm (với xét học bạ cần thêm học lực lớp 12 loại Giỏi)."
+    },
+    {
+      "id": 4,
+      "admission_code": "7380107",
+      "major_code": "7380107",
+      "name": "Luật kinh tế",
+      "campus": "HPN (Hà Nội)",
+      "faculty": "Khoa Luật",
+      "quota_2026": 200,
+      "subject_combos": "A00, A01, C00, D01, D14, D15",
+      "score_thpt_2026": 23.5,
+      "score_detail_2026": "23.50 điểm (A00, D01); 23.00 điểm (A01, D14, D15); 22.50 điểm (C00)",
+      "score_thpt_2025": 23.83,
+      "score_hocba_2025": 25.37,
+      "tuition_per_credit": "550.000 - 605.000 VNĐ/tín chỉ",
+      "estimated_semester_tuition": "Khoảng 9.5 - 11.0 triệu VNĐ/học kỳ",
+      "description": "Chuyên sâu về pháp luật trong hoạt động kinh doanh, thương mại quốc tế, đầu tư, tài chính - ngân hàng, sở hữu trí tuệ và giải quyết tranh chấp thương mại.",
+      "career_prospects": "Chuyên viên pháp chế tại ngân hàng, tập đoàn, doanh nghiệp FDI, trọng tài thương mại, luật sư tư vấn doanh nghiệp.",
+      "special_conditions": "Điểm Toán và Ngữ văn (hoặc Toán/Ngữ văn trong tổ hợp) ≥ 6.0 điểm và tổng điểm 3 môn ≥ 18.0 điểm (với xét học bạ cần thêm học lực lớp 12 loại Giỏi)."
+    },
+    {
+      "id": 18,
+      "admission_code": "7760101PH",
+      "major_code": "7760101",
+      "name": "Công tác xã hội (Phân hiệu TP.HCM)",
+      "campus": "SPN (TP.HCM)",
+      "faculty": "Phân hiệu Học viện tại TP.HCM",
+      "quota_2026": 70,
+      "subject_combos": "C00, C03, D01, D14, D15",
+      "score_thpt_2026": 23.35,
+      "score_detail_2026": "23.35 điểm (D01); 22.85 điểm (C03, D14, D15); 22.35 điểm (C00)",
+      "score_thpt_2025": 21.5,
+      "score_hocba_2025": 23.5,
+      "tuition_per_credit": "550.000 - 605.000 VNĐ/tín chỉ",
+      "estimated_semester_tuition": "Khoảng 9.0 - 10.5 triệu VNĐ/học kỳ",
+      "description": "Đào tạo cử nhân Công tác xã hội tại Phân hiệu TP. Hồ Chí Minh (Số 620 Đỗ Xuân Hợp, phường Phước Long, TP.HCM) đáp ứng nhu cầu nhân lực khu vực phía Nam.",
+      "career_prospects": "Làm việc tại các tổ chức xã hội, bệnh viện, trường học, doanh nghiệp và cơ quan nhà nước tại TP.HCM và các tỉnh phía Nam.",
+      "special_conditions": "Mã xét tuyển tại Phân hiệu TP.HCM: Mã trường SPN - Mã ngành 7760101PH."
+    },
+    {
+      "id": 13,
+      "admission_code": "7310101",
+      "major_code": "7310101",
+      "name": "Kinh tế",
+      "campus": "HPN (Hà Nội)",
+      "faculty": "Khoa Kinh tế và Tài chính",
+      "quota_2026": 215,
+      "subject_combos": "A00, A01, C03, D01, D07, X26",
+      "score_thpt_2026": 23.25,
+      "score_detail_2026": "23.25 điểm (A00, D01); 22.75 điểm (A01, C03, D07, X26)",
+      "score_thpt_2025": 24.03,
+      "score_hocba_2025": 25.52,
+      "tuition_per_credit": "550.000 - 605.000 VNĐ/tín chỉ",
+      "estimated_semester_tuition": "Khoảng 9.5 - 11.0 triệu VNĐ/học kỳ",
+      "description": "Đào tạo kiến thức sâu rộng về kinh tế đầu tư, kinh tế quốc tế, tài chính - ngân hàng, phân tích chính sách kinh tế và dự báo thị trường.",
+      "career_prospects": "Chuyên viên phân tích kinh tế - tài chính, chuyên viên ngân hàng, đầu tư chứng khoán, hoạch định chính sách tại các bộ ban ngành.",
+      "special_conditions": "Xét tuyển thêm tổ hợp mới X26 (Toán, Tiếng Anh, Tin học)."
+    },
+    {
+      "id": 16,
+      "admission_code": "7310109",
+      "major_code": "7310109",
+      "name": "Kinh tế số",
+      "campus": "HPN (Hà Nội)",
+      "faculty": "Khoa Kinh tế và Tài chính",
+      "quota_2026": 240,
+      "subject_combos": "A00, A01, C03, D01, D07, X26",
+      "score_thpt_2026": 23.25,
+      "score_detail_2026": "23.25 điểm (A00, D01); 22.75 điểm (A01, C03, D07, X26)",
+      "score_thpt_2025": 23.2,
+      "score_hocba_2025": 24.9,
+      "tuition_per_credit": "550.000 - 605.000 VNĐ/tín chỉ",
+      "estimated_semester_tuition": "Khoảng 9.5 - 11.5 triệu VNĐ/học kỳ",
+      "description": "Kết hợp giữa kiến thức Kinh tế hiện đại, Phân tích dữ liệu lớn (Big Data), Trí tuệ nhân tạo trong kinh doanh, Fintech và Thương mại điện tử.",
+      "career_prospects": "Chuyên viên phân tích dữ liệu kinh doanh (Business Analyst), chuyên viên Fintech, quản trị chuyển đổi số, thương mại điện tử.",
+      "special_conditions": "Một trong những ngành mũi nhọn thời đại số với 240 chỉ tiêu năm 2026."
+    },
+    {
+      "id": 19,
+      "admission_code": "7810103PH",
+      "major_code": "7810103",
+      "name": "Quản trị dịch vụ du lịch và lữ hành (Phân hiệu TP.HCM)",
+      "campus": "SPN (TP.HCM)",
+      "faculty": "Phân hiệu Học viện tại TP.HCM",
+      "quota_2026": 70,
+      "subject_combos": "A00, A01, C00, C03, D01, D14, D15",
+      "score_thpt_2026": 23.15,
+      "score_detail_2026": "23.15 điểm (A00, D01); 22.65 điểm (A01, C03, D14, D15); 22.15 điểm (C00)",
+      "score_thpt_2025": 22.0,
+      "score_hocba_2025": 24.0,
+      "tuition_per_credit": "550.000 - 605.000 VNĐ/tín chỉ",
+      "estimated_semester_tuition": "Khoảng 9.5 - 11.5 triệu VNĐ/học kỳ",
+      "description": "Đào tạo cử nhân Quản trị dịch vụ du lịch và lữ hành tại Phân hiệu TP.HCM, kết nối thực tập trực tiếp với hệ thống doanh nghiệp lữ hành - khách sạn sôi động tại miền Nam.",
+      "career_prospects": "Điều hành tour, quản lý khách sạn - sự kiện, hướng dẫn viên du lịch tại TP.HCM và khu vực phía Nam.",
+      "special_conditions": "Mã xét tuyển tại Phân hiệu TP.HCM: Mã trường SPN - Mã ngành 7810103PH."
+    },
+    {
+      "id": 9,
+      "admission_code": "7310399",
+      "major_code": "7310399",
+      "name": "Giới và Phát triển",
+      "campus": "HPN (Hà Nội)",
+      "faculty": "Khoa Giới và Phát triển",
+      "quota_2026": 150,
+      "subject_combos": "C00, C03, D01, D09, D14, D15",
+      "score_thpt_2026": 22.85,
+      "score_detail_2026": "22.85 điểm (D01); 22.35 điểm (C03, D09, D14, D15); 21.85 điểm (C00)",
+      "score_thpt_2025": 22.43,
+      "score_hocba_2025": 24.32,
+      "tuition_per_credit": "550.000 - 605.000 VNĐ/tín chỉ",
+      "estimated_semester_tuition": "Khoảng 9.0 - 10.5 triệu VNĐ/học kỳ",
+      "description": "Học viện Phụ nữ Việt Nam là cơ sở duy nhất trên cả nước đào tạo cử nhân ngành Giới và Phát triển, kết hợp kiến thức xã hội học, kinh tế phát triển, lồng ghép giới và quản lý dự án.",
+      "career_prospects": "Chuyên gia tư vấn giới tại Liên Hợp Quốc (UN Women, UNDP), các tổ chức quốc tế, cơ quan hoạch định chính sách, Hội LHPN Việt Nam và các bộ ngành.",
+      "special_conditions": "Có nhiều cơ hội nhận học bổng tài trợ từ các tổ chức quốc tế và Nhà nước."
+    },
+    {
+      "id": 5,
+      "admission_code": "7480201",
+      "major_code": "7480201",
+      "name": "Công nghệ thông tin",
+      "campus": "HPN (Hà Nội)",
+      "faculty": "Viện Công nghệ thông tin",
+      "quota_2026": 140,
+      "subject_combos": "A00, A01, D01, D09, X06, X26",
+      "score_thpt_2026": 21.8,
+      "score_detail_2026": "21.80 điểm (A00, D01); 21.30 điểm (A01, D09, X06, X26)",
+      "score_thpt_2025": 20.68,
+      "score_hocba_2025": 23.01,
+      "tuition_per_credit": "550.000 - 605.000 VNĐ/tín chỉ",
+      "estimated_semester_tuition": "Khoảng 10.5 - 12.0 triệu VNĐ/học kỳ",
+      "description": "Đào tạo kỹ sư/cử nhân CNTT chuyên sâu về Công nghệ phần mềm, Trí tuệ nhân tạo (AI), Khoa học dữ liệu, An toàn thông tin và Hệ thống thông tin hiện đại (được PVcomBank tài trợ phòng Lab hiện đại).",
+      "career_prospects": "Lập trình viên Full-stack, Kỹ sư AI/Data, Chuyên viên kiểm thử phần mềm (QA/Tester), Quản trị mạng và hệ thống tại các tập đoàn công nghệ.",
+      "special_conditions": "Với phương thức xét học bạ: Điểm trung bình chung môn Toán cả 3 năm lớp 10, 11, 12 phải ≥ 7.0 điểm."
+    },
+    {
+      "id": 8,
+      "admission_code": "77601011",
+      "major_code": "7760101",
+      "name": "Phát triển và quản lý dịch vụ xã hội (ngành CTXH)",
+      "campus": "HPN (Hà Nội)",
+      "faculty": "Khoa Công tác xã hội",
+      "quota_2026": 80,
+      "subject_combos": "C00, C03, D01, D14, D15",
+      "score_thpt_2026": 21.25,
+      "score_detail_2026": "21.25 điểm (D01); 20.75 điểm (C03, D14, D15); 20.25 điểm (C00)",
+      "score_thpt_2025": 24.17,
+      "score_hocba_2025": 25.63,
+      "tuition_per_credit": "550.000 - 605.000 VNĐ/tín chỉ",
+      "estimated_semester_tuition": "Khoảng 9.0 - 10.5 triệu VNĐ/học kỳ",
+      "description": "Đào tạo năng lực thiết kế, vận hành và quản trị các mô hình dịch vụ xã hội, chăm sóc sức khỏe tinh thần, phúc lợi doanh nghiệp và dự án cộng đồng.",
+      "career_prospects": "Quản lý dự án xã hội, điều phối viên CSR tại doanh nghiệp, quản lý trung tâm dịch vụ an sinh và chăm sóc xã hội.",
+      "special_conditions": "Cấp bằng tốt nghiệp đại học ngành Công tác xã hội kèm phụ lục văn bằng chuyên sâu."
+    },
+    {
+      "id": 2,
+      "admission_code": "7340101E",
+      "major_code": "7340101",
+      "name": "Quản trị kinh doanh (Chất lượng cao)",
+      "campus": "HPN (Hà Nội)",
+      "faculty": "Khoa Quản trị kinh doanh",
+      "quota_2026": 30,
+      "subject_combos": "A00, A01, C00, C03, D01, D14, D15",
+      "score_thpt_2026": 18.0,
+      "score_detail_2026": "18.00 điểm (A00, D01, C00); 17.50 điểm (A01, C03, D14, D15)",
+      "score_thpt_2025": 24.0,
+      "score_hocba_2025": 24.0,
+      "tuition_per_credit": "Theo định mức chương trình Chất lượng cao",
+      "estimated_semester_tuition": "Khoảng 15 - 18 triệu VNĐ/học kỳ",
+      "description": "Chương trình đào tạo tăng cường tiếng Anh chuyên ngành, sĩ số lớp nhỏ, giảng viên giàu kinh nghiệm quốc tế và thực tập sớm tại các tập đoàn đa quốc gia.",
+      "career_prospects": "Chuyên viên quản trị tại các công ty đa quốc gia, tập đoàn kinh tế lớn, ngân hàng quốc tế, chuyên viên tư vấn quản trị.",
+      "special_conditions": "Yêu cầu có chứng chỉ tiếng Anh tối thiểu Bậc 3 (tương đương IELTS ≥ 4.5) hoặc điểm TB tiếng Anh 3 năm THPT ≥ 8.0 hoặc đạt ngưỡng điểm thi tiếng Anh THPT."
+    },
+    {
+      "id": 14,
+      "admission_code": "7310101E",
+      "major_code": "7310101",
+      "name": "Kinh tế (Chất lượng cao)",
+      "campus": "HPN (Hà Nội)",
+      "faculty": "Khoa Kinh tế và Tài chính",
+      "quota_2026": 35,
+      "subject_combos": "A00, A01, C03, D01, D07, X26",
+      "score_thpt_2026": 18.0,
+      "score_detail_2026": "18.00 điểm (A00, D01); 17.50 điểm (A01, C03, D07, X26)",
+      "score_thpt_2025": 24.03,
+      "score_hocba_2025": 25.52,
+      "tuition_per_credit": "Theo định mức chương trình Chất lượng cao",
+      "estimated_semester_tuition": "Khoảng 15 - 18 triệu VNĐ/học kỳ",
+      "description": "Chương trình Kinh tế chất lượng cao giảng dạy tăng cường bằng tiếng Anh, gắn kết chặt chẽ với mạng lưới ngân hàng và định chế tài chính quốc tế.",
+      "career_prospects": "Chuyên viên phân tích đầu tư quốc tế, chuyên viên tài chính tại các ngân hàng nước ngoài, tổ chức kinh tế quốc tế.",
+      "special_conditions": "Yêu cầu có chứng chỉ tiếng Anh tối thiểu Bậc 3 (tương đương IELTS ≥ 4.5) hoặc điểm TB tiếng Anh 3 năm THPT ≥ 8.0."
+    },
+    {
+      "id": 6,
+      "admission_code": "74802011",
+      "major_code": "7480201",
+      "name": "Thiết kế và phát triển Game (thuộc ngành CNTT)",
+      "campus": "HPN (Hà Nội)",
+      "faculty": "Viện Công nghệ thông tin",
+      "quota_2026": 70,
+      "subject_combos": "A00, A01, D01, D09, X06, X26",
+      "score_thpt_2026": 17.85,
+      "score_detail_2026": "17.85 điểm (A00, D01); 17.35 điểm (A01, D09, X06, X26)",
+      "score_thpt_2025": 20.68,
+      "score_hocba_2025": 23.01,
+      "tuition_per_credit": "550.000 - 605.000 VNĐ/tín chỉ",
+      "estimated_semester_tuition": "Khoảng 10.5 - 12.0 triệu VNĐ/học kỳ",
+      "description": "Chương trình đào tạo chuyên sâu về lập trình Game (Unity, Unreal Engine), đồ họa 2D/3D, thiết kế kịch bản và cơ chế tương tác game đa nền tảng. Cấp bằng Cử nhân Công nghệ thông tin.",
+      "career_prospects": "Game Developer, Game Designer, 3D Technical Artist, Lập trình viên ứng dụng tương tác thực tế ảo AR/VR tại các studio trong và ngoài nước.",
+      "special_conditions": "Với phương thức xét học bạ: Điểm trung bình chung môn Toán cả 3 năm lớp 10, 11, 12 phải ≥ 7.0 điểm."
+    }
+  ],
+  "admission_methods": [
+    {
+      "id": 1,
+      "method_code": "PT1 (Mã 301)",
+      "method_name": "Xét tuyển thẳng theo quy định của Bộ GD&ĐT và Học viện",
+      "quota_percent": "3% tổng chỉ tiêu",
+      "conditions": "Anh hùng lao động, Chiến sĩ thi đua toàn quốc; Thí sinh đạt giải Nhất, Nhì, Ba kỳ thi chọn HSG Quốc gia, Quốc tế hoặc thi KHKT cấp Quốc gia, Quốc tế (trong vòng 3 năm); Người dân tộc thiểu số rất ít người, người khuyết tật nặng, lưu học sinh đủ điều kiện.",
+      "scoring_formula": "Xét duyệt trực tiếp theo hồ sơ năng lực và giải thưởng đạt được.",
+      "notes": "Nếu thí sinh không dùng quyền xét tuyển thẳng mà đăng ký xét tuyển thông thường sẽ được cộng 3.0 điểm thưởng (thang điểm 30)."
+    },
+    {
+      "id": 2,
+      "method_code": "PT2 (Mã 100)",
+      "method_name": "Xét kết quả thi tốt nghiệp THPT năm 2026",
+      "quota_percent": "Thuộc 97% chỉ tiêu chung",
+      "conditions": "Thí sinh tốt nghiệp THPT và có tổng điểm 3 môn thi tốt nghiệp THPT theo tổ hợp xét tuyển ≥ 15.0 điểm. Riêng ngành Luật và Luật Kinh tế: tổng điểm ≥ 18.0 và môn Toán/Ngữ văn ≥ 6.0 điểm.",
+      "scoring_formula": "Điểm xét tuyển = (Môn 1 + Môn 2 + Môn 3) + Điểm cộng (nếu có, tối đa 3.0) + Điểm ưu tiên khu vực/đối tượng.",
+      "notes": "Thí sinh có chứng chỉ tiếng Anh quốc tế (IELTS ≥ 5.0) được quy đổi sang điểm 7.0 - 10.0 môn Tiếng Anh hoặc cộng điểm khuyến khích."
+    },
+    {
+      "id": 3,
+      "method_code": "PT3 (Mã 200)",
+      "method_name": "Xét kết quả học tập cấp THPT (Xét học bạ)",
+      "quota_percent": "Thuộc 97% chỉ tiêu chung",
+      "conditions": "Áp dụng cho thí sinh tốt nghiệp THPT năm 2026, đạt hạnh kiểm Tốt. Ngành Luật & Luật kinh tế: Học lực lớp 12 xếp loại Giỏi, ĐTB 3 năm môn Toán/Văn ≥ 6.0 và tổng 3 môn ≥ 18.0. Ngành CNTT & Thiết kế Game: ĐTB môn Toán 3 năm lớp 10, 11, 12 ≥ 7.0.",
+      "scoring_formula": "Điểm xét tuyển = (ĐTB Môn 1 + ĐTB Môn 2 + ĐTB Môn 3) + Điểm cộng (nếu có) + Điểm ưu tiên. Trong đó ĐTB mỗi môn = (Điểm cả năm lớp 10 + lớp 11 + lớp 12) / 3.",
+      "notes": "Lưu ý: Theo quy định tuyển sinh năm 2026, thí sinh xét học bạ vẫn cần đảm bảo tổng điểm 3 môn thi tốt nghiệp THPT theo tổ hợp đạt tối thiểu 15.0 điểm (ngành Luật/Luật KT ≥ 18.0 điểm hoặc điểm xét TN ≥ 8.5)."
+    },
+    {
+      "id": 4,
+      "method_code": "PT4 (Mã 402SPT & 402HSA)",
+      "method_name": "Xét kết quả thi Đánh giá năng lực (ĐHSP Hà Nội - SPT & ĐHQG Hà Nội - HSA)",
+      "quota_percent": "Thuộc 97% chỉ tiêu chung",
+      "conditions": "Thí sinh tham dự kỳ thi ĐGNL năm 2026 do ĐH Sư phạm Hà Nội (Mã 402SPT) hoặc ĐH Quốc gia Hà Nội (Mã 402HSA) tổ chức. Ngành Luật & Luật KT yêu cầu học lực lớp 12 loại Giỏi và điểm Toán/Văn ≥ 6.0.",
+      "scoring_formula": "Xét theo ngưỡng điểm quy đổi tương đương do Học viện công bố theo kế hoạch chung của Bộ GD&ĐT.",
+      "notes": "Giúp tăng cơ hội trúng tuyển sớm bằng điểm thi ĐGNL độc lập."
+    },
+    {
+      "id": 5,
+      "method_code": "PT5 (Mã 500)",
+      "method_name": "Phương thức khác (Dành cho hệ Dự bị đại học)",
+      "quota_percent": "Theo chỉ tiêu riêng",
+      "conditions": "Thí sinh đã tốt nghiệp THPT, hoàn thành chương trình Dự bị đại học và đạt ngưỡng điểm trung bình chung học tập THPT theo quy định.",
+      "scoring_formula": "Xét tuyển dựa trên kết quả hoàn thành chương trình dự bị đại học và hồ sơ trường dự bị gửi về Học viện.",
+      "notes": "Chương trình Chất lượng cao yêu cầu thêm điều kiện ngoại ngữ tiếng Anh."
+    }
+  ],
+  "english_conversion": [
+    {
+      "id": 1,
+      "level_rank": 1,
+      "ielts_score": "Từ 7.0 trở lên",
+      "toefl_itp": "Từ 627 trở lên",
+      "toefl_ibt": "Từ 94 trở lên",
+      "toeic_four_skills": "Nghe ≥490, Đọc ≥455, Nói ≥180, Viết ≥180",
+      "sat_score": "≥ 1400",
+      "converted_score_pt100": 10.0,
+      "bonus_points": 1.5
+    },
+    {
+      "id": 2,
+      "level_rank": 2,
+      "ielts_score": "6.5",
+      "toefl_itp": "584 - 626",
+      "toefl_ibt": "78 - 93",
+      "toeic_four_skills": "Nghe 458-485, Đọc 429-450, Nói 168-170, Viết 164-170",
+      "sat_score": "1301 - 1399",
+      "converted_score_pt100": 9.5,
+      "bonus_points": 1.0
+    },
+    {
+      "id": 3,
+      "level_rank": 3,
+      "ielts_score": "6.0",
+      "toefl_itp": "542 - 583",
+      "toefl_ibt": "62 - 77",
+      "toeic_four_skills": "Nghe 429-457, Đọc 407-428, Nói 164-167, Viết 157-163",
+      "sat_score": "1201 - 1300",
+      "converted_score_pt100": 9.0,
+      "bonus_points": 0.75
+    },
+    {
+      "id": 4,
+      "level_rank": 4,
+      "ielts_score": "5.5",
+      "toefl_itp": "500 - 541",
+      "toefl_ibt": "46 - 61",
+      "toeic_four_skills": "Nghe 400-428, Đọc 385-406, Nói 160-163, Viết 150-156",
+      "sat_score": "1101 - 1200",
+      "converted_score_pt100": 8.0,
+      "bonus_points": 0.5
+    },
+    {
+      "id": 5,
+      "level_rank": 5,
+      "ielts_score": "5.0",
+      "toefl_itp": "450 - 499",
+      "toefl_ibt": "30 - 45",
+      "toeic_four_skills": "Nghe 275-395, Đọc 275-380, Nói 120-150, Viết 120-140",
+      "sat_score": "1000 - 1100",
+      "converted_score_pt100": 7.0,
+      "bonus_points": 0.25
+    }
+  ],
+  "faqs_knowledge": [
+    {
+      "id": 1,
+      "category": "Thông tin chung",
+      "question": "Học viện Phụ nữ Việt Nam có mã trường là gì và địa chỉ ở đâu?",
+      "keywords": "mã trường, địa chỉ, ở đâu, cơ sở, hà nội, tphcm, sài gòn, nguyễn chí thanh, gia lâm",
+      "answer": "Học viện Phụ nữ Việt Nam (Vietnam Women's Academy - VWA) là trường Đại học Công lập trực thuộc Trung ương Hội Liên hiệp Phụ nữ Việt Nam.\n- **Mã trường tại Hà Nội:** `HPN`\n  + Trụ sở chính: Số 68 đường Nguyễn Chí Thanh, phường Láng, TP. Hà Nội.\n  + Cơ sở mở rộng: Đường Kiêu Kỵ, xã Gia Lâm, TP. Hà Nội.\n- **Mã Phân hiệu tại TP. Hồ Chí Minh:** `SPN`\n  + Địa chỉ: Số 620 Đỗ Xuân Hợp, phường Phước Long, TP. Hồ Chí Minh.",
+      "source_url": "https://tuyensinh.hvpnvn.edu.vn/"
+    },
+    {
+      "id": 2,
+      "category": "Đối tượng tuyển sinh",
+      "question": "Học viện Phụ nữ Việt Nam có tuyển sinh nam giới không?",
+      "keywords": "con trai, nam giới, bạn nam, tuyển nam, tuyển sinh nam, chỉ tuyển nữ, nam học được không",
+      "answer": "**CÓ!** Mặc dù mang tên là Học viện Phụ nữ Việt Nam (do trực thuộc Hội Liên hiệp Phụ nữ Việt Nam), nhưng Học viện là trường đại học công lập đào tạo đa ngành và **tuyển sinh cả thí sinh NAM và NỮ** bình đẳng ở tất cả 100% các ngành đào tạo đại học, thạc sĩ, tiến sĩ. Hiện nay tỷ lệ nam sinh viên tại Học viện đang ngày càng tăng cao, đặc biệt ở các ngành CNTT, Thiết kế Game, Luật, Kinh tế số, Quản trị kinh doanh, Truyền thông.",
+      "source_url": "https://tuyensinh.hvpnvn.edu.vn/"
+    },
+    {
+      "id": 3,
+      "category": "Học phí",
+      "question": "Học phí của Học viện Phụ nữ Việt Nam năm 2026 là bao nhiêu?",
+      "keywords": "học phí, tiền học, bao nhiêu tiền, một tín chỉ, một kỳ, đắt không",
+      "answer": "Học viện Phụ nữ Việt Nam là trường đại học công lập nên mức học phí rất hợp lý theo quy định của Nhà nước:\n- **Hệ đại học chính quy đại trà:** Dự kiến từ **550.000 – 605.000 VNĐ/tín chỉ** (tương đương khoảng **9,0 – 12,0 triệu VNĐ/học kỳ** tùy theo số tín chỉ đăng ký của từng ngành).\n- **Hệ Chất lượng cao (QTKD CLC & Kinh tế CLC):** Khoảng 15 – 18 triệu VNĐ/học kỳ với chương trình tăng cường tiếng Anh và thực tập doanh nghiệp.",
+      "source_url": "https://hvpnvn.edu.vn/cat-tin-tuc/su-kien/thong-tin-tuyen-sinh-2026-ban-cap-nhat-thang-5-2026/"
+    },
+    {
+      "id": 4,
+      "category": "Ký túc xá",
+      "question": "Học viện có ký túc xá cho sinh viên ở xa không? Bao nhiêu chỗ?",
+      "keywords": "ký túc xá, ktx, nội trú, chỗ ở, phòng ở, ở trọ",
+      "answer": "Học viện có hệ thống Ký túc xá khang trang, an ninh 24/7 ngay trong khuôn viên trường với tổng cộng **1.792 chỗ ở nội trú**:\n- **Tại Hà Nội:** 980 chỗ nội trú (gồm 660 chỗ ngay tại Trụ sở chính 68 Nguyễn Chí Thanh và 320 chỗ tại cơ sở Gia Lâm).\n- **Tại Phân hiệu TP. Hồ Chí Minh:** 812 chỗ nội trú.\nPhòng ở đầy đủ tiện nghi (điều hòa, bình nóng lạnh, wifi, khu tự học, căng tin).",
+      "source_url": "https://hvpnvn.edu.vn/cat-tin-tuc/su-kien/thong-tin-tuyen-sinh-2026-ban-cap-nhat-thang-5-2026/"
+    },
+    {
+      "id": 5,
+      "category": "Học bổng",
+      "question": "Chính sách học bổng và ưu đãi cho tân sinh viên năm 2026 như thế nào?",
+      "keywords": "học bổng, miễn giảm học phí, hỗ trợ, du học, tân sinh viên, 24 điểm",
+      "answer": "Học viện Phụ nữ Việt Nam có quỹ học bổng rất đa dạng cho sinh viên:\n1. **Học bổng Tân sinh viên:** Thí sinh trúng tuyển có tổng điểm 3 môn thi THPT năm 2026 đạt **≥ 24,0 điểm** (không tính điểm ưu tiên) hoặc diện tuyển thẳng có cơ hội nhận Học bổng đầu vào giá trị cao.\n2. **Học bổng Khuyến khích học tập:** 100% sinh viên đạt học lực Xuất sắc và rèn luyện Tốt mỗi học kỳ đều được nhận học bổng.\n3. **Học bổng Quốc tế & Doanh nghiệp:** Học bổng từ Quỹ Hợp tác Quốc tế các Ngân hàng Tiết kiệm Đức (DSIK), Ngân hàng PVcomBank, học bổng trao đổi/du học tại Nga và các đối tác quốc tế cho sinh viên đạt loại Giỏi từ Học kỳ I.\n4. **Chính sách Nhà nước:** Miễn giảm học phí 100% hoặc 50-70% cho sinh viên thuộc diện chính sách, hộ nghèo, dân tộc thiểu số và các ngành khoa học cơ bản theo quy định.",
+      "source_url": "https://hvpnvn.edu.vn/cat-tin-tuc/su-kien/thong-tin-tuyen-sinh-2026-ban-cap-nhat-thang-5-2026/"
+    },
+    {
+      "id": 6,
+      "category": "Chứng chỉ Tiếng Anh & Điểm cộng",
+      "question": "Có chứng chỉ IELTS, TOEIC, SAT hay giải Học sinh giỏi được quy đổi hoặc cộng điểm thế nào?",
+      "keywords": "ielts, toeic, toefl, sat, quy đổi tiếng anh, cộng điểm, học sinh giỏi, hsg cấp tỉnh",
+      "answer": "Quy định điểm cộng và quy đổi chứng chỉ năm 2026 (thang điểm 30, tổng điểm cộng tối đa không quá 3.0 điểm):\n- **Quy đổi điểm môn Tiếng Anh (PT xét điểm thi THPT) hoặc cộng điểm khuyến khích:**\n  + **IELTS ≥ 7.0** (hoặc SAT ≥ 1400): Quy đổi **10.0 điểm** môn Tiếng Anh hoặc cộng **1.50 điểm**.\n  + **IELTS 6.5** (hoặc SAT 1301-1399): Quy đổi **9.5 điểm** hoặc cộng **1.00 điểm**.\n  + **IELTS 6.0** (hoặc SAT 1201-1300): Quy đổi **9.0 điểm** hoặc cộng **0.75 điểm**.\n  + **IELTS 5.5** (hoặc SAT 1101-1200): Quy đổi **8.0 điểm** hoặc cộng **0.50 điểm**.\n  + **IELTS 5.0** (hoặc SAT 1000-1100): Quy đổi **7.0 điểm** hoặc cộng **0.25 điểm**.\n- **Điểm thưởng Học sinh giỏi:**\n  + Giải Nhất/Nhì/Ba HSG Quốc gia (không dùng quyền tuyển thẳng): Cộng **3.0 điểm**.\n  + Giải Khuyến khích HSG Quốc gia hoặc Giải Nhất HSG cấp Tỉnh/Thành phố: Cộng **1.50 điểm**.\n  + Giải Nhì HSG cấp Tỉnh/TP: Cộng **1.25 điểm**; Giải Ba HSG cấp Tỉnh/TP: Cộng **1.0 điểm**.\n*(Lưu ý: Không chấp nhận chứng chỉ thi hình thức Home Edition)*.",
+      "source_url": "https://hvpnvn.edu.vn/cat-tin-tuc/su-kien/thong-tin-tuyen-sinh-2026-ban-cap-nhat-thang-5-2026/"
+    },
+    {
+      "id": 7,
+      "category": "Liên hệ & Hotline",
+      "question": "Số điện thoại hotline, email và fanpage tư vấn tuyển sinh của Học viện là gì?",
+      "keywords": "liên hệ, hotline, số điện thoại, sđt, email, fanpage, facebook, zalo, phòng tuyển sinh",
+      "answer": "Bạn có thể liên hệ trực tiếp với Phòng Tuyển sinh - Học viện Phụ nữ Việt Nam qua các kênh chính thức:\n- **Trụ sở chính Hà Nội (68 Nguyễn Chí Thanh, Phường Láng, Hà Nội):**\n  + Hotline: **0243.775.1750** hoặc **0912.991.355**\n  + Email: `tuyensinh@hvpnvn.edu.vn`\n  + Website: https://tuyensinh.hvpnvn.edu.vn/ | https://hvpnvn.edu.vn/\n  + Fanpage: https://www.facebook.com/Hocvienphunu/\n- **Phân hiệu TP. Hồ Chí Minh (620 Đỗ Xuân Hợp, Phường Phước Long, TP.HCM):**\n  + Điện thoại: **0283.731.4056** | **0916.036.118** | **0373.902.608**\n  + Website: https://phhvpnvn.edu.vn/",
+      "source_url": "https://tuyensinh.hvpnvn.edu.vn/"
+    },
+    {
+      "id": 8,
+      "category": "Tổ hợp xét tuyển mới",
+      "question": "Tổ hợp X06 và X26 gồm những môn nào?",
+      "keywords": "x06, x26, tổ hợp môn, môn tin học, tổ hợp xét tuyển",
+      "answer": "Năm 2026, Học viện Phụ nữ Việt Nam áp dụng 11 tổ hợp xét tuyển, trong đó có 2 tổ hợp mới có môn Tin học dành cho nhóm ngành Công nghệ và Kinh tế:\n- **A00:** Toán, Vật lý, Hóa học\n- **A01:** Toán, Vật lý, Tiếng Anh\n- **C00:** Ngữ văn, Lịch sử, Địa lý\n- **C03:** Ngữ văn, Toán, Lịch sử\n- **D01:** Toán, Ngữ văn, Tiếng Anh\n- **D07:** Toán, Hóa học, Tiếng Anh\n- **D09:** Toán, Lịch sử, Tiếng Anh\n- **D14:** Ngữ văn, Lịch sử, Tiếng Anh\n- **D15:** Ngữ văn, Địa lý, Tiếng Anh\n- **X06:** Toán, Vật lý, Tin học\n- **X26:** Toán, Tiếng Anh, Tin học",
+      "source_url": "https://hvpnvn.edu.vn/cat-tin-tuc/su-kien/thong-tin-tuyen-sinh-2026-ban-cap-nhat-thang-5-2026/"
+    },
+    {
+      "id": 9,
+      "category": "Hồ sơ & Thủ tục nhập học",
+      "question": "Hồ sơ nhập học năm 2026 gồm những giấy tờ gì và thời gian nhập học khi nào?",
+      "keywords": "hồ sơ nhập học, giấy tờ nhập học, thủ tục nhập học, xác nhận nhập học, ngày nhập học, khi nào nhập học, giấy báo trúng tuyển",
+      "answer": "Theo thông báo chính thức của Học viện Phụ nữ Việt Nam năm 2026:\n- **Thời gian mở cổng tra cứu kết quả & quy đổi điểm:** Từ 12h00 ngày **10/08/2026** tại `https://tuyensinh.hvpnvn.edu.vn/tra-cuu-ket-qua-tuyen-sinh/`.\n- **Thời gian nhập học tập trung:** Trong 3 ngày **15, 16 và 17/08/2026**.\n- **Hồ sơ nhập học cần chuẩn bị:**\n  1. Giấy chứng nhận kết quả thi tốt nghiệp THPT năm 2026 (bản chính).\n  2. Giấy báo trúng tuyển của Học viện Phụ nữ Việt Nam.\n  3. Học bạ THPT (bản sao công chứng kèm bản chính đối chiếu).\n  4. Bằng tốt nghiệp THPT hoặc Giấy chứng nhận tốt nghiệp tạm thời năm 2026.\n  5. Bản sao Căn cước công dân (CCCD), Giấy khai sinh, Sơ yếu lý lịch có xác nhận địa phương.\n  6. Hồ sơ minh chứng đối tượng/khu vực ưu tiên, chứng chỉ IELTS/SAT bản sao chứng thực (nếu có).\n  7. Giấy chuyển sinh hoạt Đoàn/Đảng và giấy chuyển nghĩa vụ quân sự (đối với nam sinh viên).",
+      "source_url": "https://hvpnvn.edu.vn/khong-co-danh-muc/diem-chuan-trung-tuyen-dai-hoc-chinh-quy-cac-phuong-thuc-xet-tuyen-2026/"
+    },
+    {
+      "id": 10,
+      "category": "Lệ phí xét tuyển",
+      "question": "Lệ phí xét tuyển, rà soát hồ sơ và xác minh chứng chỉ năm 2026 là bao nhiêu?",
+      "keywords": "lệ phí, phí xét tuyển, tiền hồ sơ, phí xác minh chứng chỉ, phí rà soát hồ sơ",
+      "answer": "Theo Đề án tuyển sinh năm 2026 (Quyết định số 545/QĐ-HVPNVN), mức thu dịch vụ tuyển sinh tại Học viện Phụ nữ Việt Nam như sau:\n- **Lệ phí đăng ký xét tuyển:** Theo mức quy định chung của Bộ GD&ĐT trên Hệ thống tuyển sinh chung.\n- **Lệ phí rà soát hồ sơ tuyển sinh:** `100.000 VNĐ / hồ sơ`.\n- **Lệ phí xác minh chứng chỉ / chứng nhận đầu vào (IELTS, TOEFL, SAT...):** `200.000 VNĐ / chứng chỉ`.",
+      "source_url": "https://hvpnvn.edu.vn/cat-tin-tuc/su-kien/thong-tin-tuyen-sinh-2026-ban-cap-nhat-thang-5-2026/"
+    },
+    {
+      "id": 11,
+      "category": "Điểm ưu tiên & Khu vực",
+      "question": "Cách tính điểm ưu tiên khu vực (KV1, KV2, KV2-NT) và quy tắc giảm điểm ưu tiên từ 22.5 điểm?",
+      "keywords": "điểm ưu tiên, khu vực ưu tiên, kv1, kv2, kv2-nt, kv3, đối tượng ưu tiên, 22.5 điểm, công thức điểm ưu tiên",
+      "answer": "Chính sách ưu tiên khu vực và đối tượng thực hiện theo Điều 7, Thông tư 06/2026/TT-BGDĐT của Bộ GD&ĐT:\n- **Mức điểm ưu tiên khu vực chuẩn:** Khu vực 1 (`KV1`): **+0.75 điểm**; Khu vực 2 nông thôn (`KV2-NT`): **+0.50 điểm**; Khu vực 2 (`KV2`): **+0.25 điểm**; Khu vực 3 (`KV3`): **0 điểm**.\n- **Mức điểm ưu tiên đối tượng chính sách:** Nhóm UT1 cộng **+2.0 điểm**; Nhóm UT2 cộng **+1.0 điểm**.\n- **Công thức giảm dần khi tổng điểm đạt từ 22,5 trở lên (thang 30):**\n  `Điểm ưu tiên thực nhận = [(30 - Tổng điểm đạt được) / 7,5] × Mức điểm ưu tiên chuẩn`\n  *(Trong đó: Tổng điểm đạt được = Điểm 3 môn + Điểm cộng thưởng/khuyến khích nếu có. Thời gian hưởng ưu tiên khu vực áp dụng trong năm tốt nghiệp THPT và 1 năm kế tiếp).* ",
+      "source_url": "https://hvpnvn.edu.vn/cat-tin-tuc/su-kien/thong-tin-tuyen-sinh-2026-ban-cap-nhat-thang-5-2026/"
+    },
+    {
+      "id": 12,
+      "category": "Cơ hội việc làm & Thực tập",
+      "question": "Sinh viên Học viện Phụ nữ Việt Nam ra trường làm gì? Tỷ lệ có việc làm và mạng lưới doanh nghiệp đối tác?",
+      "keywords": "việc làm, cơ hội việc làm, ra trường làm gì, thất nghiệp, thực tập, doanh nghiệp, lương, thu nhập, hợp tác quốc tế, du học",
+      "answer": "Sinh viên Học viện Phụ nữ Việt Nam được kết nối thực tập và việc làm ngay từ năm học thứ 2:\n- **100% sinh viên** được giới thiệu đi thực tập, thực hành nghề nghiệp tại các cơ quan, tòa án, ngân hàng, doanh nghiệp đối tác trong nước và có cơ hội làm việc tại Nga cùng các quốc gia đối tác.\n- **Đối tác chiến lược tiêu biểu:** Ngân hàng PVcomBank (tài trợ phòng máy Workstation & phần mềm bản quyền hơn 1,4 tỷ đồng), Quỹ Hợp tác Quốc tế các Ngân hàng Tiết kiệm Đức (DSIK - 10 năm hợp tác trao học bổng), UN Women, các tập đoàn truyền thông, lữ hành và công ty công nghệ.\n- **Học bổng du học:** Sinh viên đạt học lực loại Giỏi ngay Học kỳ I năm nhất được xét duyệt giới thiệu đi du học theo học bổng Hiệp định của Nhà nước Việt Nam và đối tác quốc tế.",
+      "source_url": "https://hvpnvn.edu.vn/cat-tin-tuc/su-kien/thong-tin-tuyen-sinh-2026-ban-cap-nhat-thang-5-2026/"
+    },
+    {
+      "id": 13,
+      "category": "Đời sống sinh viên & Câu lạc bộ",
+      "question": "Học viện có những câu lạc bộ (CLB) sinh viên và hoạt động ngoại khóa nào?",
+      "keywords": "câu lạc bộ, clb, ngoại khóa, phong trào, tình nguyện, văn nghệ, đời sống sinh viên, kỹ năng mềm",
+      "answer": "Đời sống sinh viên tại VWA vô cùng sôi động với hơn 20 Câu lạc bộ học thuật và nghệ thuật - thể thao:\n- **Khối CLB Học thuật & Chuyên ngành:** CLB Nghề Luật (diễn án Tòa án giả định), CLB Công tác xã hội, CLB Hùng biện, CLB Vườn ươm Doanh nhân, CLB Tin học & An ninh mạng, CLB Nhiếp ảnh & Thiết kế truyền thông, CLB Tâm lý học, CLB Du lịch, CLB Sách và Hành động, CLB Thanh niên hành động vì bình đẳng giới.\n- **Khối CLB Phong trào & Tài năng:** Đội Sinh viên tình nguyện, Đội Văn nghệ tiên phong, CLB Dance Bluewings, CLB Tiếng Anh, CLB Karate, Đội Thanh niên vận động hiến máu, Cuộc thi Hoa khôi Sinh viên Thanh lịch VWA.",
+      "source_url": "https://hvpnvn.edu.vn/cat-tin-tuc/su-kien/thong-tin-tuyen-sinh-2026-ban-cap-nhat-thang-5-2026/"
+    },
+    {
+      "id": 14,
+      "category": "Học song bằng & Chương trình đào tạo",
+      "question": "Sinh viên có được học song bằng (2 văn bằng đại học cùng lúc) và thời gian đào tạo mấy năm?",
+      "keywords": "song bằng, 2 bằng, hai văn bằng, học mấy năm, thời gian đào tạo, tín chỉ, chất lượng cao khác gì đại trà",
+      "answer": "Chính sách đào tạo tín chỉ linh hoạt tại Học viện Phụ nữ Việt Nam:\n- **Thời gian đào tạo chuẩn:** Hệ đại học chính quy đào tạo theo học chế tín chỉ trong **4 năm (8 học kỳ)**. Sinh viên tích lũy đủ tín chỉ sớm có thể xét tốt nghiệp sớm trong **3,5 năm**.\n- **Học song song 2 văn bằng (Song bằng):** Sinh viên sau khi hoàn thành năm thứ nhất nếu đạt mức điểm trung bình tích lũy theo quy định được phép đăng ký học thêm **ngành thứ 2** ngay tại Học viện (ví dụ: học *Luật kinh tế* kết hợp *Quản trị kinh doanh*, hoặc *CNTT* kết hợp *Kinh tế số*) để nhận **2 bằng Cử nhân chính quy** khi ra trường.\n- **Khác biệt giữa Hệ Chất lượng cao (CLC) và Đại trà:** Hệ CLC (gồm *QTKD CLC* và *Kinh tế CLC*) có điểm chuẩn đầu vào 2026 dễ tiếp cận hơn (**17,5 – 18,0 điểm** so với 23,25 – 24,52 của hệ đại trà), lớp học quy mô nhỏ (30-35 SV), tăng cường thời lượng môn chuyên ngành bằng tiếng Anh và thực tập doanh nghiệp quốc tế.",
+      "source_url": "https://hvpnvn.edu.vn/cat-tin-tuc/su-kien/thong-tin-tuyen-sinh-2026-ban-cap-nhat-thang-5-2026/"
+    },
+    {
+      "id": 15,
+      "category": "Phân hiệu TP. Hồ Chí Minh (SPN)",
+      "question": "Phân hiệu Học viện Phụ nữ Việt Nam tại TP.HCM (mã SPN) tuyển sinh những ngành nào và điểm chuẩn bao nhiêu?",
+      "keywords": "phân hiệu tphcm, cơ sở tphcm, sài gòn, mã spn, đỗ xuân hợp, miền nam, phía nam",
+      "answer": "Thông tin tuyển sinh đại học chính quy tại **Phân hiệu Học viện Phụ nữ Việt Nam tại TP. Hồ Chí Minh (Mã trường: `SPN`)**:\n- **Địa chỉ:** Số 620 Đỗ Xuân Hợp, phường Phước Long, TP. Hồ Chí Minh.\n- **Hotline Phân hiệu:** `0283.731.4056` | `0916.036.118` | `0373.902.608`.\n- **Ký túc xá tại Phân hiệu:** Có sẵn **812 chỗ ở nội trú** ngay trong khuôn viên trường.\n- **2 ngành tuyển sinh năm 2026 (Tổng 140 chỉ tiêu):**\n  1. **Công tác xã hội (`7760101PH`):** 70 chỉ tiêu — Điểm chuẩn 2026 là **23,35 điểm** (D01); **22,85 điểm** (C03, D14, D15) và **22,35 điểm** (C00). *(Thấp hơn cơ sở Hà Nội 1,65 điểm)*.\n  2. **Quản trị dịch vụ du lịch và lữ hành (`7810103PH`):** 70 chỉ tiêu — Điểm chuẩn 2026 là **23,15 điểm** (A00, D01); **22,65 điểm** (A01, C03, D14, D15) và **22,15 điểm** (C00). *(Thấp hơn cơ sở Hà Nội 2,02 điểm)*.",
+      "source_url": "https://phhvpnvn.edu.vn/"
+    },
+    {
+      "id": 16,
+      "category": "Điểm sàn & Điều kiện môn Toán, Văn",
+      "question": "Điểm sàn nhận hồ sơ (ngưỡng đầu vào) năm 2026 và điều kiện riêng với ngành Luật, CNTT là gì?",
+      "keywords": "điểm sàn, ngưỡng đầu vào, điều kiện xét tuyển, điều kiện môn toán, điều kiện ngành luật, tối thiểu bao nhiêu điểm",
+      "answer": "Quy định ngưỡng đảm bảo chất lượng đầu vào (Điểm sàn) năm 2026 của Học viện Phụ nữ Việt Nam:\n1. **Điều kiện nguồn tuyển chung:** Tất cả thí sinh xét tuyển các phương thức (trừ diện tuyển thẳng) phải có tổng điểm 3 môn thi tốt nghiệp THPT năm 2026 theo tổ hợp đạt **≥ 15,0 điểm** (thang 30).\n2. **Điều kiện riêng đối với ngành Luật (`7380101`) & Luật kinh tế (`7380107`):**\n   - Tổng điểm 3 môn thi tốt nghiệp THPT phải **≥ 18,0 điểm** (hoặc điểm xét tốt nghiệp ≥ 8,5 khi xét học bạ/ĐGNL kèm học lực lớp 12 loại Giỏi).\n   - Điểm môn **Toán** và **Ngữ văn** (hoặc Toán/Ngữ văn trong tổ hợp xét tuyển) phải **≥ 6,0 điểm**.\n3. **Điều kiện riêng đối với ngành Công nghệ thông tin (`7480201`) & Thiết kế Game (`74802011`):**\n   - Khi xét học bạ (PT3 - Mã 200): Điểm trung bình chung môn **Toán** cả 3 năm lớp 10, 11, 12 phải **≥ 7,0 điểm**.\n4. **Điều kiện riêng đối với hệ Chất lượng cao (`7340101E`, `7310101E`):**\n   - Có chứng chỉ Tiếng Anh tối thiểu Bậc 3 (IELTS ≥ 4.5) hoặc điểm trung bình môn Tiếng Anh 3 năm THPT **≥ 8,0 điểm**.",
+      "source_url": "https://hvpnvn.edu.vn/cat-tin-tuc/su-kien/thong-tin-tuyen-sinh-2026-ban-cap-nhat-thang-5-2026/"
+    }
+  ],
+  "leads": [
+    {
+      "id": 5,
+      "full_name": "Hoàng Khánh Linh",
+      "phone": "0965432109",
+      "email": "khanhlinh.h@gmail.com",
+      "high_school_province": "Thanh Hóa",
+      "target_major": "Luật kinh tế (7380107)",
+      "exam_block": "A00",
+      "estimated_score": 24.1,
+      "question_note": "Cho em hỏi điều kiện môn Toán và Văn ≥ 6.0 của ngành Luật kinh tế với ạ.",
+      "status": "Đã tư vấn",
+      "created_at": "2026-10-27 10:05:00"
+    },
+    {
+      "id": 4,
+      "full_name": "Phạm Đức Duy",
+      "phone": "0977889900",
+      "email": "ducduy.pham@gmail.com",
+      "high_school_province": "Nam Định",
+      "target_major": "Thiết kế và phát triển Game (74802011)",
+      "exam_block": "X26",
+      "estimated_score": 19.5,
+      "question_note": "Em muốn tìm hiểu chương trình học ngành Thiết kế Game bằng tổ hợp X26 (Toán, Anh, Tin).",
+      "status": "Mới tiếp nhận",
+      "created_at": "2026-10-27 08:20:00"
+    },
+    {
+      "id": 3,
+      "full_name": "Lê Thị Thảo Vy",
+      "phone": "0938112233",
+      "email": "thaovy.le@gmail.com",
+      "high_school_province": "TP. Hồ Chí Minh",
+      "target_major": "Quản trị dịch vụ du lịch và lữ hành - Phân hiệu TP.HCM (7810103PH)",
+      "exam_block": "D14",
+      "estimated_score": 23.8,
+      "question_note": "Tư vấn giúp em thủ tục xét học bạ vào Phân hiệu TP.HCM ạ.",
+      "status": "Đang chăm sóc",
+      "created_at": "2026-10-26 16:45:00"
+    },
+    {
+      "id": 2,
+      "full_name": "Trần Hoàng Nam",
+      "phone": "0912345678",
+      "email": "hoangnam.dev@gmail.com",
+      "high_school_province": "Hải Phòng",
+      "target_major": "Công nghệ thông tin (7480201)",
+      "exam_block": "A01",
+      "estimated_score": 22.5,
+      "question_note": "Em là nam muốn đăng ký ngành CNTT và đăng ký ở Ký túc xá tại 68 Nguyễn Chí Thanh.",
+      "status": "Mới tiếp nhận",
+      "created_at": "2026-10-26 14:30:00"
+    },
+    {
+      "id": 1,
+      "full_name": "Nguyễn Minh Anh",
+      "phone": "0987654321",
+      "email": "minhanh2k8@gmail.com",
+      "high_school_province": "Hà Nội",
+      "target_major": "Truyền thông đa phương tiện (7320104)",
+      "exam_block": "D01",
+      "estimated_score": 26.25,
+      "question_note": "Em có IELTS 6.5 muốn hỏi về quy đổi điểm xét tuyển ngành Truyền thông đa phương tiện ạ.",
+      "status": "Đã tư vấn",
+      "created_at": "2026-10-25 09:15:00"
+    }
+  ],
+  "chat_logs": [
+    {
+      "id": 3,
+      "session_id": "sess_demo_03",
+      "user_message": "Mình được 24.5 điểm khối D01 thì đỗ những ngành nào?",
+      "bot_response": "Với mức điểm **24.50** ở tổ hợp **D01**, bạn đủ điểm trúng tuyển vào 13/17 chương trình tại Hà Nội (như Luật, Luật kinh tế, Kinh tế, Kinh tế số, CNTT, Giới và Phát triển...) và cả 2 ngành tại Phân hiệu TP.HCM.",
+      "intent_detected": "goi_y_chon_nganh",
+      "engine_mode": "Score-Advisor",
+      "created_at": "2026-10-27 10:15:22"
+    },
+    {
+      "id": 2,
+      "session_id": "sess_demo_02",
+      "user_message": "Trường mình có tuyển nam không ạ?",
+      "bot_response": "Có bạn nhé! Học viện Phụ nữ Việt Nam là trường đại học công lập đa ngành và tuyển sinh cả NAM và NỮ bình đẳng ở tất cả 100% các ngành đào tạo.",
+      "intent_detected": "faq_policy",
+      "engine_mode": "Hybrid-SQL-RAG",
+      "created_at": "2026-10-27 09:35:40"
+    },
+    {
+      "id": 1,
+      "session_id": "sess_demo_01",
+      "user_message": "Điểm chuẩn ngành Truyền thông đa phương tiện năm 2026 là bao nhiêu?",
+      "bot_response": "Năm 2026, ngành **Truyền thông đa phương tiện (Mã ngành: 7320104)** có điểm chuẩn dẫn đầu Học viện Phụ nữ Việt Nam là **26.10 điểm** (tổ hợp D01, C00) và **25.60 điểm** (tổ hợp C03, D14, D15).",
+      "intent_detected": "tra_cuu_nganh",
+      "engine_mode": "Hybrid-SQL-RAG",
+      "created_at": "2026-10-27 09:10:12"
+    }
+  ]
+};
+
+        const STORAGE_KEY = "vwa_admissions_db_2026_v2_deep";
+
+        function loadDatabase() {
+            try {
+                const raw = localStorage.getItem(STORAGE_KEY);
+                if (raw) {
+                    const parsed = JSON.parse(raw);
+                    if (parsed && Array.isArray(parsed.majors) && parsed.majors.length > 0 && parsed.faqs_knowledge.length >= 15) {
+                        return parsed;
+                    }
+                }
+            } catch (e) {
+                // Fallback to default in-memory DB
+            }
+            return JSON.parse(JSON.stringify(DEFAULT_VWA_DB));
+        }
+
+        function saveDatabase() {
+            try {
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(VWA_DB));
+            } catch (e) {
+                // Ignore storage write errors in restricted iframe
+            }
+            updateNavCounter();
+        }
+
+        let VWA_DB = loadDatabase();
+
+        function updateNavCounter() {
+            const totalRecords =
+                VWA_DB.majors.length +
+                VWA_DB.admission_methods.length +
+                VWA_DB.english_conversion.length +
+                VWA_DB.faqs_knowledge.length +
+                VWA_DB.leads.length +
+                VWA_DB.chat_logs.length;
+            const el = document.getElementById("nav-db-count");
+            if (el) el.textContent = totalRecords;
+        }
+
+        function showToast(msg) {
+            const box = document.getElementById("toast-box");
+            const txt = document.getElementById("toast-text");
+            if (!box || !txt) return;
+            txt.textContent = msg;
+            box.classList.remove("hidden");
+            setTimeout(() => box.classList.add("hidden"), 3200);
+        }
+
+        // ============================================================================
+        // 2. BỘ MÁY TRÍ TUỆ NHÂN TẠO ĐA TẦNG (MULTI-INTENT NLU + BM25 SEMANTIC RAG)
+        // ============================================================================
+        function removeAccents(str) {
+            if (!str) return "";
+            return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/đ/g, "d").replace(/Đ/g, "D").toLowerCase();
+        }
+
+        const MAJOR_ALIASES = {
+            "7340101": ["quản trị kinh doanh", "qtkd", "kinh doanh đại trà", "7340101"],
+            "7340101E": ["qtkd chất lượng cao", "quản trị kinh doanh chất lượng cao", "quản trị kinh doanh clc", "qtkd clc", "7340101e"],
+            "7380101": ["ngành luật", "luật học", "7380101", "khoa luật", "luật đại trà"],
+            "7380107": ["luật kinh tế", "luật kt", "7380107"],
+            "7480201": ["công nghệ thông tin", "cntt", "ngành it", "lập trình", "phần mềm", "7480201"],
+            "74802011": ["thiết kế và phát triển game", "thiết kế phát triển game", "thiết kế game", "làm game", "ngành game", "phát triển game", "74802011"],
+            "7760101": ["công tác xã hội", "ctxh", "7760101"],
+            "77601011": ["phát triển và quản lý dịch vụ xã hội", "dịch vụ xã hội", "quản lý dịch vụ xã hội", "77601011"],
+            "7310399": ["giới và phát triển", "ngành giới", "bình đẳng giới", "7310399"],
+            "7810103": ["quản trị dịch vụ du lịch và lữ hành", "quản trị du lịch", "du lịch và lữ hành", "du lịch lữ hành", "hướng dẫn viên", "7810103"],
+            "7320104": ["truyền thông đa phương tiện", "ttđpt", "đa phương tiện", "báo chí", "7320104"],
+            "73201041": ["truyền thông xã hội", "social media", "mạng xã hội", "73201041"],
+            "7310101": ["ngành kinh tế", "kinh tế học", "kinh tế đại trà", "7310101"],
+            "7310101E": ["kinh tế chất lượng cao", "kinh tế clc", "7310101e"],
+            "7310401": ["tâm lý học", "ngành tâm lý", "tham vấn tâm lý", "trị liệu tâm lý", "7310401"],
+            "7310109": ["kinh tế số", "digital economy", "fintech", "thương mại điện tử", "7310109"],
+            "7340115": ["marketing", "mkt", "digital marketing", "tiếp thị", "quảng cáo", "7340115"],
+            "7760101PH": ["ctxh tphcm", "công tác xã hội phân hiệu", "ctxh sài gòn", "7760101ph"],
+            "7810103PH": ["du lịch tphcm", "du lịch phân hiệu", "du lịch sài gòn", "7810103ph"]
+        };
+
+        function findMatchingMajors(query) {
+            const qNorm = query.toLowerCase().trim();
+            const qNoAccent = removeAccents(qNorm);
+            const matchedCodes = new Set();
+
+            // Kiểm tra trường hợp câu hỏi liệt kê cả "Luật và Luật kinh tế" hoặc "Kinh tế và Kinh tế số"
+            if ((qNorm.includes("luật") && qNorm.includes("luật kinh tế")) || (qNoAccent.includes("luat") && qNoAccent.includes("luat kinh te"))) {
+                matchedCodes.add("7380101");
+                matchedCodes.add("7380107");
+            }
+            if ((qNorm.includes("kinh tế") && qNorm.includes("kinh tế số")) || (qNoAccent.includes("kinh te") && qNoAccent.includes("kinh te so"))) {
+                matchedCodes.add("7310101");
+                matchedCodes.add("7310109");
+            }
+
+            const entries = Object.entries(MAJOR_ALIASES).sort((a, b) => {
+                const maxA = Math.max(...a[1].map(x => x.length));
+                const maxB = Math.max(...b[1].map(x => x.length));
+                return maxB - maxA;
+            });
+
+            for (const [code, keywords] of entries) {
+                for (const kw of keywords) {
+                    if (qNorm.includes(kw) || qNoAccent.includes(removeAccents(kw))) {
+                        matchedCodes.add(code);
+                        break;
+                    }
+                }
+            }
+
+            if (qNorm.includes("luật") && matchedCodes.size === 0) {
+                matchedCodes.add("7380101");
+                matchedCodes.add("7380107");
+            }
+            if (qNorm.includes("truyền thông") && matchedCodes.size === 0) {
+                matchedCodes.add("7320104");
+                matchedCodes.add("73201041");
+            }
+            if (qNorm.includes("du lịch") && matchedCodes.size === 0) {
+                matchedCodes.add("7810103");
+                matchedCodes.add("7810103PH");
+            }
+            if (qNorm.includes("kinh tế") && matchedCodes.size === 0) {
+                matchedCodes.add("7310101");
+                matchedCodes.add("7310109");
+                matchedCodes.add("7310101E");
+            }
+            if (qNorm.includes("phân hiệu") || qNorm.includes("hồ chí minh") || qNorm.includes("tphcm") || qNorm.includes("tp.hcm") || qNorm.includes("sài gòn") || qNorm.includes("spn")) {
+                matchedCodes.add("7760101PH");
+                matchedCodes.add("7810103PH");
+            }
+            if (qNorm.includes("chất lượng cao") || qNorm.includes("clc")) {
+                matchedCodes.add("7340101E");
+                matchedCodes.add("7310101E");
+            }
+
+            return VWA_DB.majors.filter(m => matchedCodes.has(m.admission_code));
+        }
+
+        function extractScoreBlockAndIelts(query) {
+            const upper = query.toUpperCase();
+            const blockMatch = upper.match(/\b(A00|A01|C00|C03|D01|D07|D09|D14|D15|X06|X26)\b/);
+            const block = blockMatch ? blockMatch[1] : null;
+
+            // Detect IELTS score if mentioned (e.g., "IELTS 6.0", "ielts 6.5")
+            let ielts = null;
+            const ieltsMatch = query.toLowerCase().match(/ielts\s*(\d(?:\.\d)?)/);
+            if (ieltsMatch) {
+                const v = parseFloat(ieltsMatch[1]);
+                if (v >= 4.0 && v <= 9.0) ielts = v;
+            }
+
+            // Remove "năm 2026", "2025", "2024", "ielts X.X", "24 điểm nhận học bổng" before extracting exam score
+            const cleaned = query.toLowerCase()
+                .replace(/năm\s*202\d/g, " ")
+                .replace(/ielts\s*\d(?:[.,]\d)?/g, " ");
+
+            let scoreMatch = cleaned.match(/(\d{2}(?:[.,]\d{1,2})?)\s*(?:điểm|đ\b|diem)/);
+            if (!scoreMatch && block) {
+                scoreMatch = cleaned.match(/\b(\d{2}(?:[.,]\d{1,2})?)\b/);
+            }
+            let score = null;
+            if (scoreMatch) {
+                const val = parseFloat(scoreMatch[1].replace(",", "."));
+                if (val >= 14.0 && val <= 30.0) score = val;
+            }
+            return { score, block, ielts };
+        }
+
+        // Chấm điểm tương đồng ngữ nghĩa BM25 rút gọn khi người dùng hỏi câu tự do bất kỳ
+        function semanticSearchAllTables(query) {
+            const stopWords = new Set(["của", "và", "là", "có", "không", "như", "thế", "nào", "cho", "em", "mình", "hỏi", "với", "ạ", "về", "tại", "trường", "học", "viện", "phụ", "nữ", "việt", "nam", "năm", "2026", "bao", "nhiêu", "những", "các", "gì", "ở", "đâu", "thì"]);
+            const tokens = removeAccents(query)
+                .replace(/[^a-z0-9\s]/g, " ")
+                .split(/\s+/)
+                .filter(t => t.length >= 2 && !stopWords.has(t));
+
+            if (tokens.length === 0) return { topFaqs: [], topMajors: [] };
+
+            const scoredFaqs = VWA_DB.faqs_knowledge.map(f => {
+                const haystack = removeAccents(`${f.category} ${f.question} ${f.keywords} ${f.answer}`);
+                let hits = 0;
+                for (const tk of tokens) {
+                    if (haystack.includes(tk)) hits += (removeAccents(f.keywords).includes(tk) ? 3 : 1);
+                }
+                return { item: f, score: hits };
+            }).filter(x => x.score >= 2).sort((a, b) => b.score - a.score);
+
+            const scoredMajors = VWA_DB.majors.map(m => {
+                const haystack = removeAccents(`${m.name} ${m.admission_code} ${m.faculty} ${m.description} ${m.career_prospects} ${m.subject_combos}`);
+                let hits = 0;
+                for (const tk of tokens) {
+                    if (haystack.includes(tk)) hits += (removeAccents(m.name).includes(tk) ? 3 : 1);
+                }
+                return { item: m, score: hits };
+            }).filter(x => x.score >= 2).sort((a, b) => b.score - a.score);
+
+            return {
+                topFaqs: scoredFaqs.slice(0, 2).map(x => x.item),
+                topMajors: scoredMajors.slice(0, 2).map(x => x.item)
+            };
+        }
+
+        // Gợi ý các câu hỏi đào sâu tiếp theo dựa trên ngữ cảnh vừa trả lời
+        function getFollowUpPrompts(intent, matchedMajors) {
+            if (intent === "chi_tiet_nganh_hoc" && matchedMajors.length > 0) {
+                const m = matchedMajors[0];
+                return [
+                    `Mình được 24 điểm khối D01 có đỗ ngành ${m.name} không?`,
+                    `Học phí 1 học kỳ và chính sách học bổng của trường như thế nào?`,
+                    `Các phương thức xét tuyển và cách tính điểm xét học bạ năm 2026`
+                ];
+            }
+            if (intent === "phan_tich_diem_so") {
+                return [
+                    `Có chứng chỉ IELTS 6.0 hoặc 6.5 được quy đổi và cộng điểm như thế nào?`,
+                    `Cách tính điểm ưu tiên khu vực (KV1, KV2) và quy tắc giảm từ 22.5 điểm?`,
+                    `Hồ sơ nhập học năm 2026 gồm những giấy tờ gì?`
+                ];
+            }
+            if (intent === "bang_diem_chuan_2026") {
+                return [
+                    `Tư vấn ngành Công nghệ thông tin và Thiết kế phát triển Game`,
+                    `So sánh ngành Luật và ngành Luật kinh tế tại Học viện Phụ nữ Việt Nam`,
+                    `Mình thích kinh doanh công nghệ nhưng sợ điểm cao thì nên chọn ngành nào dễ đỗ?`
+                ];
+            }
+            return [
+                `Bảng điểm chuẩn tất cả 19 ngành năm 2026 của Học viện Phụ nữ Việt Nam`,
+                `Mình được 24.5 điểm khối D01 thì đỗ những ngành nào của trường?`,
+                `Hồ sơ nhập học năm 2026 gồm những giấy tờ gì và thời gian nhập học khi nào?`
+            ];
+        }
+
+        async function generateBotAnswer(userMessage, apiKey) {
+            const qNorm = userMessage.toLowerCase().trim();
+            const qNoAccent = removeAccents(qNorm);
+            const matchedMajors = findMatchingMajors(userMessage);
+            const { score: detectedScore, block: detectedBlock, ielts: detectedIelts } = extractScoreBlockAndIelts(userMessage);
+
+            const responseSections = [];
+            const detectedIntents = [];
+
+            // KIỂM TRA 1: Hỏi bảng tổng hợp tất cả 19 ngành / điểm chuẩn toàn trường
+            const isAskingFullTable = [
+                "tất cả các ngành", "tất cả 19 ngành", "danh sách ngành", "17 ngành", "19 ngành",
+                "bảng điểm chuẩn", "điểm chuẩn các ngành", "điểm chuẩn năm 2026", "chỉ tiêu các ngành"
+            ].some(k => qNorm.includes(k)) || (qNorm.includes("điểm chuẩn") && matchedMajors.length === 0 && detectedScore === null);
+
+            if (isAskingFullTable) {
+                detectedIntents.push("bang_diem_chuan_2026");
+                const rows = [
+                    "### 📊 Bảng Điểm chuẩn & Chỉ tiêu 19 Chương trình Đại học Chính quy VWA (Năm 2026)",
+                    "Năm 2026, Học viện Phụ nữ Việt Nam tuyển sinh **2.690 chỉ tiêu** cho 17 chương trình tại Hà Nội (`HPN`) và 2 chương trình tại Phân hiệu TP.HCM (`SPN`). Ngành có điểm chuẩn cao nhất là **Truyền thông đa phương tiện (26.10 điểm)**:",
+                    "",
+                    "| Mã XT | Tên ngành / Chương trình | Cơ sở | Chỉ tiêu | Điểm chuẩn 2026 | Tổ hợp xét tuyển |",
+                    "| :--- | :--- | :--- | :---: | :---: | :--- |"
+                ];
+                for (const m of VWA_DB.majors) {
+                    rows.push(`| \`${m.admission_code}\` | **${m.name}** | ${m.campus} | ${m.quota_2026} | **${m.score_thpt_2026}** | ${m.subject_combos} |`);
+                }
+                rows.push("");
+                rows.push("> 💡 **Phân hóa điểm chuẩn 2026:** Nhóm ngành *Truyền thông, Du lịch, Công tác xã hội, Marketing, Tâm lý học, QTKD, Luật* có điểm chuẩn từ **24.00 – 26.10 điểm**. Trong khi đó, nhóm ngành *CNTT (21.80đ), Phát triển dịch vụ xã hội (21.25đ), Hệ Chất lượng cao (18.00đ) và Thiết kế Game (17.85đ)* mang lại cơ hội trúng tuyển rất rộng mở.");
+                responseSections.push(rows.join("\n"));
+            }
+
+            // KIỂM TRA 2: Phân tích điểm số cụ thể của thí sinh (kèm cộng điểm IELTS nếu có)
+            if (detectedScore !== null) {
+                detectedIntents.push("phan_tich_diem_so");
+                let bonusIelts = 0;
+                if (detectedIelts !== null && detectedIelts >= 5.0) {
+                    if (detectedIelts >= 7.0) bonusIelts = 1.50;
+                    else if (detectedIelts >= 6.5) bonusIelts = 1.00;
+                    else if (detectedIelts >= 6.0) bonusIelts = 0.75;
+                    else if (detectedIelts >= 5.5) bonusIelts = 0.50;
+                    else bonusIelts = 0.25;
+                }
+                const effectiveScore = Math.min(30.0, +(detectedScore + bonusIelts).toFixed(2));
+                const targetPool = matchedMajors.length > 0 ? matchedMajors : VWA_DB.majors;
+
+                const eligible = [];
+                const nearEligible = [];
+                for (const m of targetPool) {
+                    if (detectedBlock && !m.subject_combos.includes(detectedBlock)) continue;
+                    const diff = +(effectiveScore - m.score_thpt_2026).toFixed(2);
+                    const info = `- **${m.name}** (\`${m.admission_code}\` - ${m.campus}): Điểm chuẩn 2026 là **${m.score_thpt_2026}** *(${m.score_detail_2026})*`;
+                    if (diff >= 0) {
+                        eligible.push(`${info} → ✅ **ĐỦ ĐIỂM ĐỖ** (dư \`+${diff}\` điểm)`);
+                    } else if (diff >= -1.5) {
+                        nearEligible.push(`${info} → ⚠️ **Sát điểm chuẩn** (thiếu \`${Math.abs(diff)}\` điểm - Nên xét thêm Học bạ PT200)`);
+                    }
+                }
+
+                const blockText = detectedBlock ? `tổ hợp **${detectedBlock}**` : "tất cả các tổ hợp";
+                const ieltsText = bonusIelts > 0 ? ` + IELTS ${detectedIelts} (\`+${bonusIelts}đ\`) = **${effectiveScore} điểm**` : "";
+                const lines = [`### 🎯 Phân tích cơ hội trúng tuyển với mức điểm **${detectedScore}**${ieltsText} (${blockText})`];
+
+                if (eligible.length > 0) {
+                    lines.push(`🎉 **Chúc mừng! Bạn ĐỦ ĐIỂM TRÚNG TUYỂN vào ${eligible.length} chương trình đào tạo sau:**`);
+                    lines.push(...eligible.slice(0, 12));
+                } else {
+                    lines.push("⚠️ Với mức điểm hiện tại theo phương thức xét điểm thi THPT, bạn chưa đạt ngưỡng điểm chuẩn của ngành/tổ hợp này. Tuy nhiên bạn hoàn toàn có thể đăng ký **Hệ Chất lượng cao (QTKD CLC / Kinh tế CLC: 17.5 - 18.0 điểm)** hoặc **Thiết kế & Phát triển Game (17.35 - 17.85 điểm)**.");
+                }
+
+                if (nearEligible.length > 0) {
+                    lines.push("");
+                    lines.push("💡 **Các ngành sát mức điểm của bạn (cơ hội đỗ nếu xét Học bạ hoặc cộng điểm ưu tiên/IELTS):**");
+                    lines.push(...nearEligible.slice(0, 6));
+                }
+                responseSections.push(lines.join("\n"));
+            }
+
+            // KIỂM TRA 3: So sánh hoặc Tư vấn chi tiết các ngành được nhắc tới
+            if (matchedMajors.length > 0 && !isAskingFullTable) {
+                detectedIntents.push("chi_tiet_nganh_hoc");
+                const isCompare = matchedMajors.length >= 2 && (qNorm.includes("so sánh") || qNorm.includes("khác gì") || qNorm.includes("hay") || qNorm.includes("và"));
+                const cards = [];
+
+                if (isCompare) {
+                    const compRows = [
+                        `### ⚖️ Bảng So sánh Trực tiếp ${matchedMajors.length} Ngành Đào tạo tại VWA`,
+                        "| Tiêu chí so sánh | " + matchedMajors.map(m => `**${m.name}** (\`${m.admission_code}\`)`).join(" | ") + " |",
+                        "| :--- | " + matchedMajors.map(() => ":---").join(" | ") + " |",
+                        "| **Cơ sở & Khoa** | " + matchedMajors.map(m => `${m.campus} - ${m.faculty}`).join(" | ") + " |",
+                        "| **Chỉ tiêu 2026** | " + matchedMajors.map(m => `**${m.quota_2026} sinh viên**`).join(" | ") + " |",
+                        "| **Tổ hợp xét tuyển** | " + matchedMajors.map(m => `\`${m.subject_combos}\``).join(" | ") + " |",
+                        "| **Điểm chuẩn 2026** | " + matchedMajors.map(m => `**${m.score_thpt_2026} điểm** (${m.score_detail_2026})`).join(" | ") + " |",
+                        "| **Điểm chuẩn 2025** | " + matchedMajors.map(m => `THPT: ${m.score_thpt_2025} / Học bạ: ${m.score_hocba_2025}`).join(" | ") + " |",
+                        "| **Học phí dự kiến** | " + matchedMajors.map(m => m.estimated_semester_tuition).join(" | ") + " |",
+                        "| **Vị trí việc làm** | " + matchedMajors.map(m => m.career_prospects).join(" | ") + " |"
+                    ];
+                    cards.push(compRows.join("\n"));
+                }
+
+                for (const m of matchedMajors) {
+                    cards.push([
+                        `### 🎓 Chi tiết ngành: ${m.name} (Mã XT: \`${m.admission_code}\`)`,
+                        `- **Cơ sở đào tạo:** ${m.campus} | **Đơn vị quản lý:** ${m.faculty}`,
+                        `- **Chỉ tiêu năm 2026:** \`${m.quota_2026}\` chỉ tiêu | **Tổ hợp xét tuyển:** \`${m.subject_combos}\``,
+                        `- **Điểm chuẩn THPT 2026:** **${m.score_thpt_2026} điểm** *(Chi tiết từng tổ hợp: ${m.score_detail_2026})*`,
+                        `- **Điểm chuẩn năm 2025:** Điểm thi THPT: \`${m.score_thpt_2025}\` | Học bạ: \`${m.score_hocba_2025}\``,
+                        `- **Mức học phí dự kiến:** ${m.tuition_per_credit} *(${m.estimated_semester_tuition})*`,
+                        `- **Chương trình đào tạo:** ${m.description}`,
+                        `- **Cơ hội nghề nghiệp sau tốt nghiệp:** ${m.career_prospects}`,
+                        `- **Điều kiện & Lưu ý xét tuyển:** ${m.special_conditions}`
+                    ].join("\n"));
+                }
+                responseSections.push(cards.join("\n\n---\n\n"));
+            }
+
+            // KIỂM TRA 4: Tư vấn chọn ngành theo sở thích / ngành dễ đỗ / ngành điểm thấp / ngành lương cao
+            const isCareerOrient = [
+                "nên học ngành nào", "nên chọn ngành nào", "dễ đỗ", "điểm thấp", "sợ điểm cao",
+                "thích công nghệ", "thích kinh doanh", "hướng nội", "hướng ngoại", "ngành nào hot", "tư vấn chọn ngành"
+            ].some(k => qNorm.includes(k));
+
+            if (isCareerOrient) {
+                detectedIntents.push("tu_van_huong_nghiep");
+                responseSections.push([
+                    "### 💡 Tư vấn Chọn ngành theo Sở thích & Chiến lược Đỗ Cao tại VWA (Năm 2026)",
+                    "Dựa trên phổ điểm chuẩn chính thức năm 2026 của Học viện Phụ nữ Việt Nam, mình gợi ý chiến lược chọn ngành theo từng nhóm năng lực:",
+                    "- **Nhóm 1 — Đam mê Công nghệ, Lập trình, Đồ họa & Điểm chuẩn vừa sức (17.35 – 21.80 điểm):**",
+                    "  + **Thiết kế và phát triển Game (`74802011`):** Điểm chuẩn chỉ **17.35 – 17.85 điểm** (nhận bằng Cử nhân CNTT), học lập trình Unity/Unreal, đồ họa 3D.",
+                    "  + **Công nghệ thông tin (`7480201`):** Điểm chuẩn **21.30 – 21.80 điểm**, phòng Lab hiện đại do PVcomBank tài trợ.",
+                    "- **Nhóm 2 — Yêu thích Kinh tế, Quản trị, Môi trường Quốc tế nhưng muốn Điểm chuẩn mềm (17.50 – 23.25 điểm):**",
+                    "  + **QTKD Chất lượng cao (`7340101E`) & Kinh tế Chất lượng cao (`7310101E`):** Điểm chuẩn chỉ **17.50 – 18.00 điểm** (thấp hơn hệ đại trà từ 5.25 đến 6.52 điểm!), học tăng cường tiếng Anh.",
+                    "  + **Kinh tế (`7310101`) & Kinh tế số (`7310109`):** Điểm chuẩn **22.75 – 23.25 điểm**, đào tạo Fintech, Thương mại điện tử, Phân tích dữ liệu kinh doanh.",
+                    "- **Nhóm 3 — Năng động, Sáng tạo, Yêu thích Truyền thông, Du lịch, Marketing (24.17 – 26.10 điểm):**",
+                    "  + **Truyền thông đa phương tiện (`7320104` - 26.10đ), Truyền thông xã hội (`73201041` - 25.10đ), Quản trị Du lịch & Lữ hành (`7810103` - 25.17đ), Marketing (`7340115` - 24.85đ).**",
+                    "- **Nhóm 4 — Yêu thích Pháp luật, Tâm lý, An sinh & Tổ chức Quốc tế (20.25 – 25.00 điểm):**",
+                    "  + **Tâm lý học (`7310401` - 24.60đ), Luật (`7380101` - 24.00đ), Luật kinh tế (`7380107` - 23.50đ), Giới & Phát triển (`7310399` - 22.85đ), Phát triển dịch vụ xã hội (`77601011` - 21.25đ).**"
+                ].join("\n"));
+            }
+
+            // KIỂM TRA 5: Phương thức xét tuyển / Xét học bạ / Đánh giá năng lực
+            if (["phương thức", "học bạ", "đánh giá năng lực", "đgnl", "hsa", "spt", "xét tuyển thẳng", "cách tính điểm xét"].some(k => qNorm.includes(k))) {
+                detectedIntents.push("phuong_thuc_xet_tuyen");
+                const lines = ["### 📋 5 Phương thức Xét tuyển Đại học Chính quy VWA năm 2026", ""];
+                for (const mt of VWA_DB.admission_methods) {
+                    lines.push(`**${mt.method_code} — ${mt.method_name}** *(Chỉ tiêu: ${mt.quota_percent})*`);
+                    lines.push(`- **Điều kiện:** ${mt.conditions}`);
+                    lines.push(`- **Công thức tính điểm:** ${mt.scoring_formula}`);
+                    lines.push(`- **Lưu ý:** ${mt.notes}`);
+                    lines.push("");
+                }
+                responseSections.push(lines.join("\n"));
+            }
+
+            // KIỂM TRA 6: Quy đổi chứng chỉ IELTS / TOEFL / TOEIC / SAT / Điểm cộng HSG
+            if (["ielts", "toeic", "toefl", "sat", "chứng chỉ tiếng anh", "ngoại ngữ", "quy đổi", "điểm cộng", "học sinh giỏi", "hsg"].some(k => qNorm.includes(k))) {
+                detectedIntents.push("quy_doi_ngoai_ngu");
+                const rows = [
+                    "### 🌐 Bảng Quy đổi & Cộng điểm Chứng chỉ Tiếng Anh Quốc tế / SAT (Năm 2026)",
+                    "| Mức | IELTS | TOEFL iBT | SAT | Điểm quy đổi Tiếng Anh (PT100) | Điểm cộng khuyến khích |",
+                    "| :---: | :---: | :---: | :---: | :---: | :---: |"
+                ];
+                for (const r of VWA_DB.english_conversion) {
+                    rows.push(`| Hạng ${r.level_rank} | **${r.ielts_score}** | ${r.toefl_ibt} | ${r.sat_score} | **${r.converted_score_pt100} điểm** | **+${r.bonus_points} điểm** |`);
+                }
+                rows.push("");
+                rows.push("- **Điểm thưởng Học sinh giỏi (HSG):** Giải Nhất/Nhì/Ba HSG Quốc gia (không dùng quyền tuyển thẳng) cộng **+3.0 điểm**; Giải Khuyến khích Quốc gia hoặc Giải Nhất Tỉnh/TP cộng **+1.50 điểm**; Giải Nhì Tỉnh/TP **+1.25 điểm**; Giải Ba Tỉnh/TP **+1.0 điểm**.");
+                rows.push("- **Lưu ý:** Tổng các đầu điểm cộng tối đa không vượt quá **3.0 điểm** (10% thang điểm 30). Không chấp nhận chứng chỉ thi *Home Edition*.");
+                responseSections.push(rows.join("\n"));
+            }
+
+            // KIỂM TRA 7: Quét TẤT CẢ các chủ đề trong bảng FAQs (hỗ trợ câu hỏi gộp nhiều ý như: "Học phí, học bổng và ký túc xá")
+            const matchedFaqs = [];
+            for (const faq of VWA_DB.faqs_knowledge) {
+                // Nếu đã in bảng IELTS ở Kiểm tra 6 thì tránh lặp lại FAQ số 6
+                if (faq.category.includes("Chứng chỉ Tiếng Anh") && detectedIntents.includes("quy_doi_ngoai_ngu")) continue;
+                const kws = faq.keywords.split(",").map(k => k.trim().toLowerCase());
+                let hitCount = 0;
+                for (const kw of kws) {
+                    if (kw && (qNorm.includes(kw) || qNoAccent.includes(removeAccents(kw)))) {
+                        hitCount++;
+                    }
+                }
+                if (hitCount > 0 || qNorm.includes(faq.question.toLowerCase())) {
+                    matchedFaqs.push({ faq, hitCount });
+                }
+            }
+
+            if (matchedFaqs.length > 0) {
+                detectedIntents.push("chinh_sach_faq");
+                matchedFaqs.sort((a, b) => b.hitCount - a.hitCount);
+                // Hiển thị tối đa 4 chủ đề FAQ nếu người dùng hỏi câu hỏi gộp nhiều vế (VD: học phí + học bổng + ký túc xá)
+                const faqBlocks = matchedFaqs.slice(0, 4).map(item => `### 💡 ${item.faq.category}: ${item.faq.question}\n${item.faq.answer}`);
+                responseSections.push(faqBlocks.join("\n\n---\n\n"));
+            }
+
+            // KIỂM TRA 8: Nếu chưa khớp bộ quy tắc trực tiếp nào, kích hoạt Tìm kiếm Ngữ nghĩa BM25 trên toàn bộ 6 bảng
+            if (responseSections.length === 0) {
+                const { topFaqs, topMajors } = semanticSearchAllTables(userMessage);
+                if (topMajors.length > 0 || topFaqs.length > 0) {
+                    detectedIntents.push("tim_kiem_ngu_nghia_bm25");
+                    if (topMajors.length > 0) {
+                        for (const m of topMajors) {
+                            responseSections.push([
+                                `### 🎓 Ngành liên quan: ${m.name} (Mã XT: \`${m.admission_code}\` - ${m.campus})`,
+                                `- **Chỉ tiêu 2026:** \`${m.quota_2026}\` | **Tổ hợp xét tuyển:** \`${m.subject_combos}\``,
+                                `- **Điểm chuẩn 2026:** **${m.score_thpt_2026} điểm** *(${m.score_detail_2026})*`,
+                                `- **Học phí dự kiến:** ${m.tuition_per_credit} (${m.estimated_semester_tuition})`,
+                                `- **Đào tạo & Việc làm:** ${m.description} Cơ hội nghề nghiệp: ${m.career_prospects}`
+                            ].join("\n"));
+                        }
+                    }
+                    if (topFaqs.length > 0) {
+                        for (const f of topFaqs) {
+                            responseSections.push(`### 💡 ${f.question}\n${f.answer}`);
+                        }
+                    }
+                }
+            }
+
+            // KIỂM TRA 9: Nếu là câu chào hỏi xã giao ("xin chào", "hello", "alo", "bạn là ai") hoặc câu ngoài lề
+            if (responseSections.length === 0) {
+                detectedIntents.push("tu_van_tong_quan");
+                responseSections.push([
+                    "### 🏛️ Tổng quan Tuyển sinh Đại học Chính quy Học viện Phụ nữ Việt Nam (VWA) năm 2026",
+                    `Mình đã ghi nhận câu hỏi của bạn: *"${userMessage}"*. Dưới đây là thông tin cốt lõi nhất từ Cơ sở dữ liệu Tuyển sinh 2026 của Học viện để bạn tra cứu ngay:`,
+                    "- **1. Mã trường & Cơ sở đào tạo:**",
+                    "  + **Trụ sở chính Hà Nội (Mã `HPN`):** Số 68 Nguyễn Chí Thanh, phường Láng, Hà Nội & Cơ sở Gia Lâm (Tuyển **17 ngành**, 2.550 chỉ tiêu).",
+                    "  + **Phân hiệu TP. Hồ Chí Minh (Mã `SPN`):** Số 620 Đỗ Xuân Hợp, phường Phước Long, TP.HCM (Tuyển **2 ngành**: *Công tác xã hội* & *Quản trị dịch vụ du lịch và lữ hành*, 140 chỉ tiêu).",
+                    "- **2. Mặt bằng Điểm chuẩn 2026:** Dao động từ **17.35 đến 26.10 điểm**. Cao nhất là *Truyền thông đa phương tiện* (26.10đ), *Quản trị du lịch & lữ hành* (25.17đ), *Truyền thông xã hội* (25.10đ), *Công tác xã hội* (25.00đ). Dễ tiếp cận nhất là *Thiết kế Game* (17.85đ) và *QTKD CLC / Kinh tế CLC* (18.00đ).",
+                    "- **3. Học phí & Ký túc xá:** Học phí công lập chỉ **550.000 – 605.000 VNĐ/tín chỉ** (~9,0 – 12,0 triệu/học kỳ). Ký túc xá có **1.792 chỗ nội trú** tiện nghi. Học viện **tuyển cả NAM và NỮ** ở 100% các ngành.",
+                    "- **4. Hotline Phòng Tuyển sinh:** `0243.775.1750` - `0912.991.355` (Hà Nội) | `0283.731.4056` (TP.HCM)."
+                ].join("\n"));
+            }
+
+            let structuredReply = responseSections.join("\n\n---\n\n");
+            const primaryIntent = detectedIntents.join("+") || "tu_van_chung";
+            let engineMode = "Deep Hybrid NLU-RAG";
+
+            // 10. Nếu người dùng có nhập GEMINI_API_KEY thì gọi Gemini kết hợp toàn bộ ngữ cảnh RAG vừa trích xuất
+            if (apiKey && apiKey.length > 10) {
+                try {
+                    const contextText = VWA_DB.majors.map(m =>
+                        `- Mã ${m.admission_code}: ${m.name} (${m.campus}), Chỉ tiêu: ${m.quota_2026}, Tổ hợp: ${m.subject_combos}, Điểm chuẩn 2026: ${m.score_detail_2026}, Học phí: ${m.tuition_per_credit}`
+                    ).join("\n") + "\n\nTHÔNG TIN TRÍCH XUẤT TỪ DATABASE:\n" + structuredReply;
+
+                    const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${encodeURIComponent(apiKey)}`, {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({
+                            contents: [{
+                                parts: [{
+                                    text: `Bạn là Chuyên gia AI Tư vấn Tuyển sinh của Học viện Phụ nữ Việt Nam (VWA). Hãy trả lời câu hỏi của thí sinh bằng tiếng Việt sâu sắc, thân thiện, định dạng Markdown rõ ràng, chính xác 100% theo dữ liệu sau:\n${contextText}\n\nCâu hỏi: ${userMessage}`
+                                }]
+                            }]
+                        })
+                    });
+                    if (res.ok) {
+                        const data = await res.json();
+                        const llmText = data?.candidates?.[0]?.content?.parts?.[0]?.text;
+                        if (llmText) {
+                            structuredReply = llmText;
+                            engineMode = "Gemini 1.5 Flash + RAG";
+                        }
+                    }
+                } catch (err) {
+                    engineMode = "Deep Hybrid NLU-RAG";
+                }
+            }
+
+            // Lưu vào bảng chat_logs
+            const nowStr = new Date().toISOString().replace("T", " ").substring(0, 19);
+            const nextId = VWA_DB.chat_logs.length > 0 ? Math.max(...VWA_DB.chat_logs.map(c => c.id)) + 1 : 1;
+            VWA_DB.chat_logs.unshift({
+                id: nextId,
+                session_id: "local_browser",
+                user_message: userMessage,
+                bot_response: structuredReply,
+                intent_detected: primaryIntent,
+                engine_mode: engineMode,
+                created_at: nowStr
+            });
+            saveDatabase();
+
+            const followUps = getFollowUpPrompts(detectedIntents[0], matchedMajors);
+            return { reply: structuredReply, intent: primaryIntent, engineMode, followUps };
+        }
+
+        // ============================================================================
+        // 3. TRÌNH BIÊN DỊCH MARKDOWN & ĐIỀU KHIỂN GIAO DIỆN CHẠY TỨC THÌ
+        // ============================================================================
+        function formatInlineMarkdown(text) {
+            return text
+                .replace(/`([^`]+)`/g, "<code>$1</code>")
+                .replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>")
+                .replace(/\*([^*]+)\*/g, "<em>$1</em>");
+        }
+
+        function renderMarkdown(md) {
+            if (!md) return "";
+            const lines = md.split("\n");
+            let html = "";
+            let inTable = false;
+            let inList = false;
+
+            for (let i = 0; i < lines.length; i++) {
+                const line = lines[i].trimEnd();
+                if (line.trim().startsWith("|") && line.trim().endsWith("|")) {
+                    if (inList) { html += "</ul>"; inList = false; }
+                    if (line.includes("---")) continue;
+                    const cells = line.trim().slice(1, -1).split("|").map(c => formatInlineMarkdown(c.trim()));
+                    if (!inTable) {
+                        html += "<table><thead><tr>" + cells.map(c => `<th>${c}</th>`).join("") + "</tr></thead><tbody>";
+                        inTable = true;
+                    } else {
+                        html += "<tr>" + cells.map(c => `<td>${c}</td>`).join("") + "</tr>";
+                    }
+                    continue;
+                } else if (inTable) {
+                    html += "</tbody></table>";
+                    inTable = false;
+                }
+
+                if (line.trim().startsWith("- ") || line.trim().startsWith("+ ")) {
+                    if (!inList) { html += "<ul>"; inList = true; }
+                    html += `<li>${formatInlineMarkdown(line.trim().substring(2))}</li>`;
+                    continue;
+                } else if (inList) {
+                    html += "</ul>";
+                    inList = false;
+                }
+
+                if (line.startsWith("### ")) {
+                    html += `<h3>${formatInlineMarkdown(line.substring(4))}</h3>`;
+                } else if (line.startsWith("> ")) {
+                    html += `<blockquote>${formatInlineMarkdown(line.substring(2))}</blockquote>`;
+                } else if (line.trim() === "---") {
+                    html += `<hr class="my-3 border-slate-200">`;
+                } else if (line.trim() === "") {
+                    html += `<div class="h-1.5"></div>`;
+                } else {
+                    html += `<p>${formatInlineMarkdown(line)}</p>`;
+                }
+            }
+            if (inTable) html += "</tbody></table>";
+            if (inList) html += "</ul>";
+            return html;
+        }
+
+        function appendChatBubble(role, content, isMarkdown = true, followUps = []) {
+            const container = document.getElementById("chat-messages");
+            const wrapper = document.createElement("div");
+            wrapper.className = role === "user"
+                ? "flex gap-3 max-w-[90%] self-end flex-row-reverse"
+                : "flex gap-3 max-w-[92%]";
+
+            const avatar = document.createElement("div");
+            avatar.className = role === "user"
+                ? "w-9 h-9 rounded-full bg-sky-600 text-white font-bold text-xs flex items-center justify-center shrink-0 shadow"
+                : "w-9 h-9 rounded-full bg-pink-800 text-white font-bold text-xs flex items-center justify-center shrink-0 shadow";
+            avatar.textContent = role === "user" ? "Bạn" : "VWA";
+
+            const bubble = document.createElement("div");
+            bubble.className = role === "user"
+                ? "bg-pink-800 text-white rounded-2xl rounded-tr-sm px-4 py-3 shadow-sm text-sm"
+                : "bg-white border border-slate-200 rounded-2xl rounded-tl-sm px-4 py-3.5 shadow-sm text-sm md-content overflow-x-auto";
+
+            let innerHTML = isMarkdown ? renderMarkdown(content) : content;
+
+            // Thêm các nút câu hỏi đào sâu gợi ý ngay dưới câu trả lời của Bot
+            if (role === "bot" && Array.isArray(followUps) && followUps.length > 0) {
+                const chipsHtml = followUps.map(q =>
+                    `<button type="button" data-prompt="${q.replace(/"/g, '&quot;')}" class="inline-chip-btn text-left text-xs bg-pink-50 hover:bg-pink-100 text-pink-900 border border-pink-200 px-2.5 py-1 rounded-full font-medium transition">💬 ${q}</button>`
+                ).join("");
+                innerHTML += `<div class="mt-3 pt-2.5 border-t border-slate-100"><span class="block text-[11px] font-bold text-slate-400 mb-1.5">GỢI Ý HỎI TIẾP:</span><div class="flex flex-wrap gap-1.5">${chipsHtml}</div></div>`;
+            }
+
+            bubble.innerHTML = innerHTML;
+            wrapper.appendChild(avatar);
+            wrapper.appendChild(bubble);
+            container.appendChild(wrapper);
+            container.scrollTop = container.scrollHeight;
+        }
+
+        // Hàm trung tâm xử lý mọi câu hỏi (từ ô nhập, từ cột gợi ý nhanh hoặc từ chip trong khung chat)
+        async function askQuestionDirectly(questionText) {
+            const cleanQuestion = (questionText || "").trim();
+            if (!cleanQuestion) return;
+
+            // Đảm bảo đang mở tab Chatbot AI
+            switchActiveTab("tab-chat");
+
+            const input = document.getElementById("chat-input");
+            if (input) input.value = "";
+
+            const apiKey = (document.getElementById("gemini-api-key")?.value || "").trim();
+            appendChatBubble("user", cleanQuestion, false);
+
+            const result = await generateBotAnswer(cleanQuestion, apiKey);
+            appendChatBubble("bot", result.reply, true, result.followUps);
+
+            const badge = document.getElementById("engine-badge");
+            if (badge && result.engineMode) badge.textContent = result.engineMode;
+        }
+
+        function switchActiveTab(tabId) {
+            document.querySelectorAll(".tab-section").forEach(sec => {
+                sec.classList.toggle("hidden", sec.id !== tabId);
+                sec.classList.toggle("block", sec.id === tabId);
+            });
+            document.querySelectorAll(".nav-tab-btn").forEach(btn => {
+                const isTarget = btn.getAttribute("data-tab") === tabId;
+                btn.className = isTarget
+                    ? "nav-tab-btn px-3.5 py-2 rounded-lg text-xs sm:text-sm font-semibold transition-all bg-pink-800 text-white shadow-sm"
+                    : "nav-tab-btn px-3.5 py-2 rounded-lg text-xs sm:text-sm font-semibold transition-all text-slate-600 hover:bg-slate-100";
+            });
+            if (tabId === "tab-majors") renderMajorsList();
+            if (tabId === "tab-calculator") runScoreCalculation();
+            if (tabId === "tab-admin") renderAdminDashboard();
+        }
+
+        function renderMajorsList() {
+            const search = (document.getElementById("search-major-input")?.value || "").toLowerCase().trim();
+            const campus = document.getElementById("campus-filter")?.value || "ALL";
+            const container = document.getElementById("majors-container");
+            if (!container) return;
+
+            const filtered = VWA_DB.majors.filter(m => {
+                const matchCampus = campus === "ALL" || m.campus.includes(campus);
+                const matchSearch = !search ||
+                    m.name.toLowerCase().includes(search) ||
+                    removeAccents(m.name).includes(removeAccents(search)) ||
+                    m.admission_code.toLowerCase().includes(search) ||
+                    m.subject_combos.toLowerCase().includes(search) ||
+                    m.faculty.toLowerCase().includes(search);
+                return matchCampus && matchSearch;
+            });
+
+            if (filtered.length === 0) {
+                container.innerHTML = `<p class="text-sm text-slate-500 col-span-full">Không tìm thấy ngành đào tạo phù hợp với từ khóa.</p>`;
+                return;
+            }
+
+            container.innerHTML = filtered.map(m => `
+                <div class="border border-slate-200 hover:border-pink-400 rounded-2xl p-4 bg-white shadow-sm hover:shadow-md transition flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-start gap-2 mb-2.5">
+                            <span class="bg-pink-50 text-pink-900 border border-pink-200 font-bold text-xs px-2.5 py-1 rounded-lg">
+                                Mã XT: ${m.admission_code} • ${m.campus}
+                            </span>
+                            <span class="bg-pink-800 text-white font-extrabold text-xs px-3 py-1 rounded-full shrink-0">
+                                ${m.score_thpt_2026} điểm
+                            </span>
+                        </div>
+                        <h3 class="font-bold text-base text-slate-900 mb-2">${m.name}</h3>
+                        <div class="text-xs text-slate-600 space-y-1 mb-3">
+                            <p>🏛️ <strong>Đơn vị:</strong> ${m.faculty}</p>
+                            <p>🎯 <strong>Chỉ tiêu 2026:</strong> ${m.quota_2026} sinh viên</p>
+                            <p>📚 <strong>Tổ hợp xét tuyển:</strong> <code class="bg-slate-100 text-pink-800 px-1.5 py-0.5 rounded font-semibold">${m.subject_combos}</code></p>
+                            <p>📊 <strong>Chi tiết điểm 2026:</strong> ${m.score_detail_2026}</p>
+                            <p>💰 <strong>Học phí:</strong> ${m.estimated_semester_tuition}</p>
+                            <p class="text-slate-700 pt-1 leading-relaxed">${m.description}</p>
+                        </div>
+                    </div>
+                    <button type="button" data-prompt="Tư vấn chi tiết về ngành ${m.name}: điểm chuẩn, học phí và cơ hội việc làm" class="ask-major-btn w-full mt-2 bg-slate-50 hover:bg-pink-50 border border-slate-200 hover:border-pink-300 text-pink-900 font-semibold text-xs py-2 px-3 rounded-xl transition">
+                        💬 Hỏi Chatbot AI chi tiết về ngành này
+                    </button>
+                </div>
+            `).join("");
+        }
+
+        function runScoreCalculation() {
+            const m1 = parseFloat(document.getElementById("calc-m1").value) || 0;
+            const m2 = parseFloat(document.getElementById("calc-m2").value) || 0;
+            const m3 = parseFloat(document.getElementById("calc-m3").value) || 0;
+            const examBlock = document.getElementById("calc-block").value;
+            const ielts = parseFloat(document.getElementById("calc-ielts").value) || 0;
+            const bonusAward = parseFloat(document.getElementById("calc-bonus").value) || 0;
+            const rawPriority = parseFloat(document.getElementById("calc-priority").value) || 0;
+            const campusFilter = document.getElementById("calc-campus").value;
+
+            let ieltsBonus = 0;
+            if (ielts >= 7.0) ieltsBonus = 1.50;
+            else if (ielts >= 6.5) ieltsBonus = 1.00;
+            else if (ielts >= 6.0) ieltsBonus = 0.75;
+            else if (ielts >= 5.5) ieltsBonus = 0.50;
+            else if (ielts >= 5.0) ieltsBonus = 0.25;
+
+            const baseScore = +(m1 + m2 + m3).toFixed(2);
+            const totalBonus = Math.min(3.0, +(bonusAward + ieltsBonus).toFixed(2));
+            const scoreWithBonus = Math.min(30.0, +(baseScore + totalBonus).toFixed(2));
+
+            let effectivePriority = rawPriority;
+            if (scoreWithBonus >= 22.5 && rawPriority > 0) {
+                effectivePriority = Math.max(0, +(((30.0 - scoreWithBonus) / 7.5) * rawPriority).toFixed(2));
+            } else {
+                effectivePriority = +rawPriority.toFixed(2);
+            }
+
+            const finalScore = Math.min(30.0, +(scoreWithBonus + effectivePriority).toFixed(2));
+
+            document.getElementById("calc-summary-banner").innerHTML = `
+                <div>
+                    <span class="block text-xs text-slate-500">Tổng điểm 3 môn</span>
+                    <strong class="text-xl font-extrabold text-slate-800">${baseScore}</strong>
+                </div>
+                <div>
+                    <span class="block text-xs text-slate-500">Điểm cộng (IELTS/HSG)</span>
+                    <strong class="text-xl font-extrabold text-emerald-700">+${totalBonus}</strong>
+                </div>
+                <div>
+                    <span class="block text-xs text-slate-500">Điểm ưu tiên quy đổi</span>
+                    <strong class="text-xl font-extrabold text-sky-700">+${effectivePriority}</strong>
+                </div>
+                <div>
+                    <span class="block text-xs text-slate-500">TỔNG ĐIỂM XÉT TUYỂN</span>
+                    <strong class="text-2xl font-extrabold text-pink-800">${finalScore}</strong>
+                </div>
+            `;
+
+            const rows = VWA_DB.majors.filter(m => {
+                if (campusFilter !== "ALL" && !m.campus.includes(campusFilter)) return false;
+                if (examBlock !== "ALL" && !m.subject_combos.includes(examBlock)) return false;
+                return true;
+            });
+
+            const tbody = document.getElementById("calc-table-body");
+            tbody.innerHTML = rows.map(m => {
+                const diff = +(finalScore - m.score_thpt_2026).toFixed(2);
+                let chance = "";
+                let badgeClass = "";
+                if (diff >= 0.5) {
+                    chance = "An toàn cao (Đủ điểm đỗ)";
+                    badgeClass = "bg-emerald-100 text-emerald-800";
+                } else if (diff >= 0) {
+                    chance = "Đủ điểm chuẩn (Đỗ)";
+                    badgeClass = "bg-emerald-100 text-emerald-800";
+                } else if (diff >= -1.0) {
+                    chance = "Cạnh tranh (Sát điểm chuẩn)";
+                    badgeClass = "bg-amber-100 text-amber-800";
+                } else {
+                    chance = "Khó đỗ PT100 (Nên xét Học bạ/CLC)";
+                    badgeClass = "bg-rose-100 text-rose-800";
+                }
+                return `
+                    <tr class="hover:bg-slate-50">
+                        <td class="p-3"><code class="bg-slate-100 text-pink-800 px-1.5 py-0.5 rounded font-semibold text-xs">${m.admission_code}</code></td>
+                        <td class="p-3 font-bold text-slate-900">${m.name}</td>
+                        <td class="p-3 text-xs text-slate-600">${m.campus}</td>
+                        <td class="p-3 text-xs text-slate-600">${m.subject_combos}</td>
+                        <td class="p-3"><strong>${m.score_thpt_2026}</strong><span class="block text-[11px] text-slate-500">${m.score_detail_2026}</span></td>
+                        <td class="p-3 font-bold ${diff >= 0 ? 'text-emerald-700' : 'text-rose-700'}">${diff >= 0 ? '+' + diff : diff}</td>
+                        <td class="p-3"><span class="px-2.5 py-1 rounded-full text-xs font-bold ${badgeClass}">${chance}</span></td>
+                    </tr>
+                `;
+            }).join("");
+        }
+
+        function renderAdminDashboard() {
+            const totalQuota = VWA_DB.majors.reduce((acc, m) => acc + m.quota_2026, 0);
+            document.getElementById("admin-kpi-grid").innerHTML = `
+                <div class="bg-white border border-slate-200 rounded-2xl p-4 shadow-sm">
+                    <span class="text-xs text-slate-500">Bảng <code>majors</code></span>
+                    <strong class="block text-2xl font-extrabold text-pink-900 mt-1">${VWA_DB.majors.length} ngành</strong>
+                </div>
+                <div class="bg-white border border-slate-200 rounded-2xl p-4 shadow-sm">
+                    <span class="text-xs text-slate-500">Tổng Chỉ tiêu 2026</span>
+                    <strong class="block text-2xl font-extrabold text-pink-900 mt-1">${totalQuota}</strong>
+                </div>
+                <div class="bg-white border border-slate-200 rounded-2xl p-4 shadow-sm">
+                    <span class="text-xs text-slate-500">Bảng <code>leads</code> (Thí sinh)</span>
+                    <strong class="block text-2xl font-extrabold text-pink-900 mt-1">${VWA_DB.leads.length} hồ sơ</strong>
+                </div>
+                <div class="bg-white border border-slate-200 rounded-2xl p-4 shadow-sm">
+                    <span class="text-xs text-slate-500">Bảng <code>faqs_knowledge</code></span>
+                    <strong class="block text-2xl font-extrabold text-pink-900 mt-1">${VWA_DB.faqs_knowledge.length} chủ đề</strong>
+                </div>
+                <div class="bg-white border border-slate-200 rounded-2xl p-4 shadow-sm">
+                    <span class="text-xs text-slate-500">Bảng <code>chat_logs</code></span>
+                    <strong class="block text-2xl font-extrabold text-pink-900 mt-1">${VWA_DB.chat_logs.length} hội thoại</strong>
+                </div>
+            `;
+
+            document.getElementById("admin-leads-tbody").innerHTML = VWA_DB.leads.map(l => `
+                <tr class="hover:bg-slate-50">
+                    <td class="p-3 font-semibold">#${l.id}</td>
+                    <td class="p-3"><strong>${l.full_name}</strong><span class="block text-xs text-slate-500">${l.email || ''}</span></td>
+                    <td class="p-3 font-medium">${l.phone}</td>
+                    <td class="p-3 text-slate-600">${l.high_school_province || '-'}</td>
+                    <td class="p-3 font-medium text-pink-900">${l.target_major}</td>
+                    <td class="p-3"><code>${l.exam_block || '-'}</code> (${l.estimated_score || '-'}đ)</td>
+                    <td class="p-3 text-slate-600">${l.question_note || '-'}</td>
+                    <td class="p-3">
+                        <select data-lead-id="${l.id}" class="lead-status-select px-2.5 py-1 border border-slate-300 rounded-lg text-xs bg-white font-semibold">
+                            <option value="Mới tiếp nhận" ${l.status === 'Mới tiếp nhận' ? 'selected' : ''}>Mới tiếp nhận</option>
+                            <option value="Đang chăm sóc" ${l.status === 'Đang chăm sóc' ? 'selected' : ''}>Đang chăm sóc</option>
+                            <option value="Đã tư vấn" ${l.status === 'Đã tư vấn' ? 'selected' : ''}>Đã tư vấn</option>
+                        </select>
+                    </td>
+                </tr>
+            `).join("");
+
+            document.querySelectorAll(".lead-status-select").forEach(sel => {
+                sel.addEventListener("change", () => {
+                    const id = parseInt(sel.getAttribute("data-lead-id"), 10);
+                    const target = VWA_DB.leads.find(item => item.id === id);
+                    if (target) {
+                        target.status = sel.value;
+                        saveDatabase();
+                        showToast(`Đã cập nhật trạng thái thí sinh #${id} thành "${sel.value}"`);
+                    }
+                });
+            });
+
+            document.getElementById("admin-faqs-tbody").innerHTML = VWA_DB.faqs_knowledge.map(f => `
+                <tr class="hover:bg-slate-50">
+                    <td class="p-2.5 font-semibold">#${f.id}</td>
+                    <td class="p-2.5"><span class="bg-pink-50 text-pink-900 px-2 py-0.5 rounded font-semibold text-xs">${f.category}</span></td>
+                    <td class="p-2.5 font-medium">${f.question}</td>
+                    <td class="p-2.5 text-xs text-slate-500">${f.keywords}</td>
+                </tr>
+            `).join("");
+
+            document.getElementById("admin-chats-tbody").innerHTML = VWA_DB.chat_logs.slice(0, 20).map(c => `
+                <tr class="hover:bg-slate-50">
+                    <td class="p-3 font-semibold">#${c.id}</td>
+                    <td class="p-3 font-medium">${c.user_message}</td>
+                    <td class="p-3"><code class="bg-slate-100 text-pink-800 px-2 py-0.5 rounded text-xs">${c.intent_detected}</code></td>
+                    <td class="p-3 text-xs text-slate-600">${c.engine_mode}</td>
+                    <td class="p-3 text-xs text-slate-500">${c.created_at}</td>
+                </tr>
+            `).join("");
+        }
+
+        // ============================================================================
+        // 4. KHỞI TẠO SỰ KIỆN & ỦY QUYỀN CLICK TOÀN TRANG CHO MỌI NÚT GỢI Ý
+        // ============================================================================
+        window.addEventListener("DOMContentLoaded", () => {
+            updateNavCounter();
+
+            const leadMajorSelect = document.getElementById("lead-major");
+            if (leadMajorSelect) {
+                leadMajorSelect.innerHTML = VWA_DB.majors.map(m =>
+                    `<option value="${m.name} (${m.admission_code})">${m.name} - Mã ${m.admission_code} (${m.campus})</option>`
+                ).join("");
+            }
+
+            // Navigation tab clicks
+            document.querySelectorAll(".nav-tab-btn").forEach(btn => {
+                btn.addEventListener("click", () => {
+                    switchActiveTab(btn.getAttribute("data-tab"));
+                });
+            });
+
+            // Ủy quyền sự kiện (Event Delegation) trên toàn bộ trang cho mọi nút có thuộc tính [data-prompt]
+            // Đảm bảo 100% nút câu hỏi gợi ý nhanh, chip gợi ý trong chat và nút hỏi ngành đều chạy tức thì!
+            document.addEventListener("click", (e) => {
+                const promptBtn = e.target.closest("[data-prompt]");
+                if (promptBtn) {
+                    e.preventDefault();
+                    const promptText = promptBtn.getAttribute("data-prompt");
+                    askQuestionDirectly(promptText);
+                }
+            });
+
+            // Clear chat button
+            document.getElementById("clear-chat-btn").addEventListener("click", () => {
+                const container = document.getElementById("chat-messages");
+                container.innerHTML = "";
+                appendChatBubble(
+                    "bot",
+                    "### Đã làm mới cuộc trò chuyện! 👋\nBạn hãy bấm vào bất kỳ câu hỏi gợi ý nào bên trái hoặc nhập câu hỏi mới bên dưới nhé.",
+                    true,
+                    [
+                        "Bảng điểm chuẩn tất cả 19 ngành năm 2026 của Học viện Phụ nữ Việt Nam",
+                        "Học phí 1 học kỳ, chính sách học bổng và ký túc xá của trường như thế nào?",
+                        "So sánh ngành Luật và ngành Luật kinh tế tại Học viện Phụ nữ Việt Nam"
+                    ]
+                );
+            });
+
+            // Chat form submit
+            document.getElementById("chat-form").addEventListener("submit", async (e) => {
+                e.preventDefault();
+                const input = document.getElementById("chat-input");
+                const message = input.value.trim();
+                if (!message) return;
+                await askQuestionDirectly(message);
+            });
+
+            // Majors search & filter
+            document.getElementById("search-major-input").addEventListener("input", renderMajorsList);
+            document.getElementById("campus-filter").addEventListener("change", renderMajorsList);
+
+            // Calculator submit
+            document.getElementById("calc-form").addEventListener("submit", (e) => {
+                e.preventDefault();
+                runScoreCalculation();
+            });
+
+            // Lead form submit
+            document.getElementById("lead-form").addEventListener("submit", (e) => {
+                e.preventDefault();
+                const nextId = VWA_DB.leads.length > 0 ? Math.max(...VWA_DB.leads.map(l => l.id)) + 1 : 1;
+                const nowStr = new Date().toISOString().replace("T", " ").substring(0, 19);
+                VWA_DB.leads.unshift({
+                    id: nextId,
+                    full_name: document.getElementById("lead-name").value.trim(),
+                    phone: document.getElementById("lead-phone").value.trim(),
+                    email: document.getElementById("lead-email").value.trim(),
+                    high_school_province: document.getElementById("lead-province").value.trim(),
+                    target_major: document.getElementById("lead-major").value,
+                    exam_block: document.getElementById("lead-block").value,
+                    estimated_score: parseFloat(document.getElementById("lead-score").value) || null,
+                    question_note: document.getElementById("lead-note").value.trim(),
+                    status: "Mới tiếp nhận",
+                    created_at: nowStr
+                });
+                saveDatabase();
+                e.target.reset();
+                showToast("✅ Đã lưu thông tin thí sinh vào bảng leads trong Database!");
+            });
+
+            // Add FAQ submit
+            document.getElementById("faq-form").addEventListener("submit", (e) => {
+                e.preventDefault();
+                const nextId = VWA_DB.faqs_knowledge.length > 0 ? Math.max(...VWA_DB.faqs_knowledge.map(f => f.id)) + 1 : 1;
+                VWA_DB.faqs_knowledge.unshift({
+                    id: nextId,
+                    category: document.getElementById("faq-category").value.trim(),
+                    question: document.getElementById("faq-question").value.trim(),
+                    keywords: document.getElementById("faq-keywords").value.trim(),
+                    answer: document.getElementById("faq-answer").value.trim(),
+                    source_url: "https://tuyensinh.hvpnvn.edu.vn/"
+                });
+                saveDatabase();
+                e.target.reset();
+                renderAdminDashboard();
+                showToast("✅ Đã nạp tri thức mới vào Database! Bạn có thể hỏi Chatbot ngay.");
+            });
+
+            // Export JSON button
+            document.getElementById("btn-export-json").addEventListener("click", () => {
+                const blob = new Blob([JSON.stringify(VWA_DB, null, 2)], { type: "application/json;charset=utf-8" });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement("a");
+                a.href = url;
+                a.download = "vwa_admissions_database_2026.json";
+                document.body.appendChild(a);
+                a.click();
+                a.remove();
+                URL.revokeObjectURL(url);
+                showToast("⬇️ Đã xuất toàn bộ 6 bảng Database ra file JSON!");
+            });
+
+            // Reset Database button
+            document.getElementById("btn-reset-db").addEventListener("click", () => {
+                VWA_DB = JSON.parse(JSON.stringify(DEFAULT_VWA_DB));
+                saveDatabase();
+                renderAdminDashboard();
+                renderMajorsList();
+                showToast("🔄 Đã khôi phục Database về dữ liệu gốc năm 2026!");
+            });
+
+            // Initial renders
+            renderMajorsList();
+            runScoreCalculation();
+        });
+    </script>
+</body>
+</html>
